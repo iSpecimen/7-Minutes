@@ -1,0 +1,54 @@
+[gd_scene format=4 uid="uid://b5gr4odnlepl2"]
+
+[ext_resource type="Texture2D" uid="uid://eiw8ckbnrkox" path="res://icon.svg" id="1_iukft"]
+[ext_resource type="Texture2D" uid="uid://cqcnjh3x1pnnk" path="res://ImageData/ImageSources/Monke.png" id="1_j5yw3"]
+[ext_resource type="Script" uid="uid://d18migbj4ij20" path="res://Scripts/RoomManagerScript.gd" id="2_gl6un"]
+[ext_resource type="Script" uid="uid://c83dbh8khmprk" path="res://Scripts/CharacterMovement.gd" id="2_kldst"]
+[ext_resource type="PackedScene" uid="uid://dfnp553rklteh" path="res://RoomData/Room1.tscn" id="5_fgofq"]
+[ext_resource type="PackedScene" uid="uid://dqxlrhnj7e04b" path="res://RoomData/Room2.tscn" id="6_2irst"]
+[ext_resource type="PackedScene" uid="uid://gqt0tohg3jjo" path="res://RoomData/Room3.tscn" id="7_bf53h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71axn"]
+resource_name = "MainTexture"
+texture = ExtResource("1_j5yw3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_b2bpf"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_71axn")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mrqo"]
+
+[node name="Game" type="Node2D" unique_id=1085711166]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=546449276]
+
+[node name="Rooms" type="Node2D" parent="." unique_id=823573370]
+
+[node name="CurrentRoom" type="Node2D" parent="Rooms" unique_id=236686629]
+
+[node name="CurrentRoomTilemap" type="TileMapLayer" parent="Rooms/CurrentRoom" unique_id=1288477485]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAAEAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_b2bpf")
+
+[node name="NewRoomTilemap" type="TileMapLayer" parent="Rooms/CurrentRoom" unique_id=450261763]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Rooms" unique_id=1205515703]
+position = Vector2(3, 0)
+script = ExtResource("2_kldst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CharacterBody2D" unique_id=1629488047]
+shape = SubResource("CircleShape2D_3mrqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/CharacterBody2D" unique_id=890571048]
+texture = ExtResource("1_iukft")
+
+[node name="RoomManager" type="Node" parent="Rooms" unique_id=2038621962 node_paths=PackedStringArray("CurrentRoom", "NewRoom")]
+script = ExtResource("2_gl6un")
+RoomTemplates = Array[PackedScene]([ExtResource("5_fgofq"), ExtResource("6_2irst"), ExtResource("7_bf53h")])
+CurrentRoom = NodePath("../CurrentRoom/CurrentRoomTilemap")
+NewRoom = NodePath("../CurrentRoom/NewRoomTilemap")

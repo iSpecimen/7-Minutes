@@ -1,0 +1,135 @@
+[gd_scene format=4 uid="uid://b5gr4odnlepl2"]
+
+[ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_gl6un"]
+[ext_resource type="Texture2D" uid="uid://cqcnjh3x1pnnk" path="res://tileMapSources/Monke.png" id="2_j5yw3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
+texture = ExtResource("2_j5yw3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u44n3"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_xkndl")
+
+[node name="Game" type="Node2D" unique_id=1085711166]
+script = ExtResource("1_gl6un")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=135747131]
+tile_map_data = PackedByteArray("AAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAEAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAEAAMAAAABAAAAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAEAAQAAAABAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_u44n3")
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=1872275745]
+
+[node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
+
+[node name="MainMenuHUD" type="Control" parent="MainMenuCamera" unique_id=926888057]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 255.0
+offset_bottom = 172.0
+
+[node name="Panel" type="Panel" parent="MainMenuCamera/MainMenuHUD" unique_id=631519181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuCamera/MainMenuHUD/Panel" unique_id=642893865]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuCamera/MainMenuHUD/Panel/MarginContainer" unique_id=116422983]
+layout_mode = 2
+
+[node name="Host Game" type="Button" parent="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer" unique_id=1461976996]
+layout_mode = 2
+text = "Host Game"
+
+[node name="Join Game" type="Button" parent="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer" unique_id=195431902]
+layout_mode = 2
+text = "Join Game
+"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1530712542]
+_spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node2D" parent="." unique_id=1450767889]
+
+[connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
+[connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

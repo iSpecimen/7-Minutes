@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://rolguicunnxo"]
+
+[ext_resource type="Texture2D" uid="uid://eiw8ckbnrkox" path="res://icon.svg" id="1_acft5"]
+[ext_resource type="Script" uid="uid://22r3fvvuy5vb" path="res://Scenes/interactingobjecttest.gd" id="1_qo0f5"]
+[ext_resource type="PackedScene" uid="uid://bbx8ofq8sn8wj" path="res://interactions/interaction area/interaction_area.tscn" id="2_fcrdi"]
+[ext_resource type="Script" uid="uid://ddei5jj8xd1cv" path="res://Scenes/movementtemp.gd" id="3_afr6h"]
+[ext_resource type="PackedScene" uid="uid://cncvinsuwrbp6" path="res://interactions/InteractionManager.tscn" id="4_qo0f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afr6h"]
+size = Vector2(73, 68)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qo0f5"]
+radius = 129.00388
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_550gs"]
+size = Vector2(80, 70.5)
+
+[node name="InteractionTest" type="Node2D" unique_id=17244616]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=372830137]
+script = ExtResource("1_qo0f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1241280743]
+position = Vector2(-2.000002, 0)
+scale = Vector2(0.578125, 0.53125)
+texture = ExtResource("1_acft5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1605915931]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_afr6h")
+
+[node name="InteractionArea" parent="StaticBody2D" unique_id=1204932933 instance=ExtResource("2_fcrdi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/InteractionArea" unique_id=892943844]
+shape = SubResource("CircleShape2D_qo0f5")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=817982342 groups=["player"]]
+collision_layer = 2
+script = ExtResource("3_afr6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1173802404]
+position = Vector2(263, 50)
+scale = Vector2(0.6015625, 0.53125)
+texture = ExtResource("1_acft5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=336452641]
+position = Vector2(263, 49.75)
+shape = SubResource("RectangleShape2D_550gs")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1330300735]
+
+[node name="InteractionManager" parent="CharacterBody2D" unique_id=1619851420 instance=ExtResource("4_qo0f5")]

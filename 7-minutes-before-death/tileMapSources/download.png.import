@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqcnjh3x1pnnk"
-path="res://.godot/imported/Monke.png-80bc37ee4692fcaf0cd4dadf905e7190.ctex"
+uid="uid://c2gm8fd84ns54"
+path="res://.godot/imported/download.png-13e474d9c7dbfe133e1173c2ad87d3ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileMapSources/Monke.png"
-dest_files=["res://.godot/imported/Monke.png-80bc37ee4692fcaf0cd4dadf905e7190.ctex"]
+source_file="res://tileMapSources/download.png"
+dest_files=["res://.godot/imported/download.png-13e474d9c7dbfe133e1173c2ad87d3ef.ctex"]
 
 [params]
 

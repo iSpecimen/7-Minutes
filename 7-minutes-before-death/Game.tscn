@@ -1,83 +1,78 @@
-[gd_scene format=4 uid="uid://b5gr4odnlepl2"]
+[gd_scene format=3 uid="uid://b5gr4odnlepl2"]
 
-[ext_resource type="Texture2D" uid="uid://cqcnjh3x1pnnk" path="res://tileMapSources/Monke.png" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://ck20egcjhoj4d" path="res://bookshelf.gd" id="1_t88pq"]
+[ext_resource type="PackedScene" uid="uid://lork6pnt52mt" path="res://interaction/interaction area/interaction_area.tscn" id="2_sb48q"]
+[ext_resource type="Script" uid="uid://b1ja7686mx8ft" path="res://movement.gd" id="3_t88pq"]
+[ext_resource type="Texture2D" uid="uid://dke5da6gk04ph" path="res://tileMapSources/circle.png" id="4_t88pq"]
+[ext_resource type="PackedScene" uid="uid://cqt8wwdsdq1qc" path="res://interaction/InteractionManager.tscn" id="5_3mrqo"]
+[ext_resource type="Texture2D" uid="uid://cry21qkwcvucy" path="res://tileMapSources/bookshel.png" id="5_r0x5m"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkndl"]
-texture = ExtResource("1_wbfu4")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbfu4"]
+size = Vector2(56, 55)
 
-[sub_resource type="TileSet" id="TileSet_u44n3"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_xkndl")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0x5m"]
+size = Vector2(63, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vekm"]
+size = Vector2(233, 157.5)
 
 [node name="Game" type="Node2D" unique_id=1085711166]
 
-[node name="Ground" type="TileMapLayer" parent="." unique_id=135747131]
-tile_map_data = PackedByteArray("AAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAEAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAEAAMAAAABAAAAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAEAAQAAAABAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAA=")
-tile_set = SubResource("TileSet_u44n3")
+[node name="Ground" type="TileMapLayer" parent="." unique_id=285899671]
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=1872275745]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1222591097 groups=["player"]]
+collision_layer = 2
+script = ExtResource("3_t88pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2062191559]
+position = Vector2(70, 32.5)
+scale = Vector2(0.24615385, 0.2525773)
+texture = ExtResource("4_t88pq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=275912118]
+position = Vector2(69, 31)
+shape = SubResource("RectangleShape2D_wbfu4")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=553434521]
+
+[node name="InteractionManager" parent="Player" unique_id=327234311 instance=ExtResource("5_3mrqo")]
+position = Vector2(69, 31)
+
+[node name="bookshelf3" type="StaticBody2D" parent="." unique_id=702964408]
+script = ExtResource("1_t88pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="bookshelf3" unique_id=1989919439]
+position = Vector2(-120, -43)
+scale = Vector2(0.3295964, 0.34070796)
+texture = ExtResource("5_r0x5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bookshelf3" unique_id=1100940792]
+position = Vector2(-122, -39)
+shape = SubResource("RectangleShape2D_r0x5m")
+
+[node name="InteractionArea" parent="bookshelf3" unique_id=851390391 instance=ExtResource("2_sb48q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bookshelf3/InteractionArea" unique_id=553502222]
+position = Vector2(-121, -44)
+shape = SubResource("RectangleShape2D_2vekm")
+
+[node name="bookshelf4" type="StaticBody2D" parent="." unique_id=1947110731]
+script = ExtResource("1_t88pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="bookshelf4" unique_id=1169279390]
+position = Vector2(350, -43)
+scale = Vector2(0.3295964, 0.34070796)
+texture = ExtResource("5_r0x5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bookshelf4" unique_id=1440523486]
+position = Vector2(350, -39)
+shape = SubResource("RectangleShape2D_r0x5m")
+
+[node name="InteractionArea" parent="bookshelf4" unique_id=1491014027 instance=ExtResource("2_sb48q")]
+position = Vector2(450, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bookshelf4/InteractionArea" unique_id=1181039060]
+position = Vector2(-121, -44)
+shape = SubResource("RectangleShape2D_2vekm")

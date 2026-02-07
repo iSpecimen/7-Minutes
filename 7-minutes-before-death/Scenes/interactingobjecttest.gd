@@ -3,8 +3,11 @@ extends StaticBody2D
 # Set the interaction_area to be active when the game starts
 @onready var interaction_area = $InteractionArea
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @onready var sprite = $Sprite2D
 =======
+=======
+>>>>>>> Stashed changes
 
 # The 'Rooms' Node, the main Parent Node
 @export var ParentRoom : Node2D
@@ -32,6 +35,9 @@ func FreeRoom(RoomToFree : Node2D):
 
 func TransitionRooms():
 	pass
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 # Called when the node enters the scene tree for the first time.
@@ -42,15 +48,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _read():
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	print("hello")
 	pass
 	#print("hello")
 =======
+=======
+>>>>>>> Stashed changes
 	InstantiateRoom(SceneToLoad)
 	print("Room Instantiated!!")
 	TransitionRooms()
 	print("Rooms Changed!!")
 	FreeRoom(RoomToFree)
 	print("Old Room Deleted!!")
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	

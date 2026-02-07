@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bvdjyc4h84gcb" path="res://Assets/Tilemap/tilemap.png" id="1_8e0uw"]
 [ext_resource type="Script" uid="uid://b8bupbhexg4ng" path="res://Scenes/playerController.gd" id="1_a7iu2"]
 [ext_resource type="Script" uid="uid://jol6np7boab" path="res://Scenes/multiPInput.gd" id="2_er8v0"]
+[ext_resource type="Script" uid="uid://mrifu0j2uyek" path="res://Scenes/animateplayer.gd" id="4_0pknb"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_er8v0"]
 properties/0/path = NodePath(".:player_id")
@@ -179,6 +180,7 @@ script = ExtResource("2_er8v0")
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 10, 0, 0, 0)
 tile_set = SubResource("TileSet_er8v0")
+script = ExtResource("4_0pknb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1074278217]
 position = Vector2(16, 18)
@@ -186,3 +188,5 @@ scale = Vector2(0.9188847, 0.5806346)
 shape = SubResource("CapsuleShape2D_0pknb")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=201167220]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2011727785]

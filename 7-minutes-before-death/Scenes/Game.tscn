@@ -2,8 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://eiw8ckbnrkox" path="res://icon.svg" id="1_iukft"]
 [ext_resource type="Texture2D" uid="uid://cqcnjh3x1pnnk" path="res://ImageData/ImageSources/Monke.png" id="1_j5yw3"]
+[ext_resource type="Script" uid="uid://22r3fvvuy5vb" path="res://Scenes/interactingobjecttest.gd" id="2_fgofq"]
 [ext_resource type="Script" uid="uid://d18migbj4ij20" path="res://Scripts/RoomManagerScript.gd" id="2_gl6un"]
-[ext_resource type="Script" path="res://Scripts/CharacterMovement.gd" id="2_kldst"]
+[ext_resource type="Script" uid="uid://c83dbh8khmprk" path="res://Scripts/CharacterMovement.gd" id="2_kldst"]
+[ext_resource type="Texture2D" uid="uid://b2o4ha4s1vjeh" path="res://ImageData/Sprites/Doar.PNG" id="3_2irst"]
+[ext_resource type="PackedScene" uid="uid://dfnp553rklteh" path="res://RoomData/Room1.tscn" id="3_bf53h"]
+[ext_resource type="PackedScene" uid="uid://bbx8ofq8sn8wj" path="res://interactions/interaction area/interaction_area.tscn" id="4_bf53h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71axn"]
 resource_name = "MainTexture"
@@ -18,19 +22,14 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_71axn")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fgofq"]
-texture = ExtResource("1_j5yw3")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71axn"]
+size = Vector2(80, 71)
 
-[sub_resource type="TileSet" id="TileSet_2irst"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_fgofq")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dahhg"]
+size = Vector2(126, 104)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mrqo"]
+radius = 17.234005
 
 [node name="Game" type="Node2D" unique_id=1085711166]
 
@@ -41,17 +40,69 @@ sources/0 = SubResource("TileSetAtlasSource_fgofq")
 [node name="CurrentRoom" type="Node2D" parent="Rooms" unique_id=236686629]
 
 [node name="CurrentRoomTilemap" type="TileMapLayer" parent="Rooms/CurrentRoom" unique_id=1288477485]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAAEAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAAEAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAD8/wIAAAABAAEAAAD8//3/AAABAAEAAAADAP3/AAABAAEAAAADAAIAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_b2bpf")
 
-[node name="NewRoomTilemap" type="TileMapLayer" parent="Rooms/CurrentRoom" unique_id=450261763]
-tile_set = SubResource("TileSet_2irst")
+[node name="DoorLvl1" type="StaticBody2D" parent="Rooms/CurrentRoom" unique_id=533851479]
+position = Vector2(-229, 156)
+script = ExtResource("2_fgofq")
+SceneToLoad = ExtResource("3_bf53h")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Rooms" unique_id=1205515703]
+[node name="Sprite" type="Sprite2D" parent="Rooms/CurrentRoom/DoorLvl1" unique_id=1642375694]
+scale = Vector2(0.3199988, 0.23999973)
+texture = ExtResource("3_2irst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CurrentRoom/DoorLvl1" unique_id=1332332233]
+shape = SubResource("RectangleShape2D_71axn")
+
+[node name="InteractionArea" parent="Rooms/CurrentRoom/DoorLvl1" unique_id=1204932933 instance=ExtResource("4_bf53h")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CurrentRoom/DoorLvl1/InteractionArea" unique_id=1488043707]
+position = Vector2(19, -15)
+shape = SubResource("RectangleShape2D_dahhg")
+
+[node name="DoorLvl2" type="StaticBody2D" parent="Rooms/CurrentRoom" unique_id=1841936021]
+position = Vector2(-229, -156)
+script = ExtResource("2_fgofq")
+
+[node name="Sprite" type="Sprite2D" parent="Rooms/CurrentRoom/DoorLvl2" unique_id=18006639]
+scale = Vector2(0.3199988, 0.23999973)
+texture = ExtResource("3_2irst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CurrentRoom/DoorLvl2" unique_id=1838044381]
+shape = SubResource("RectangleShape2D_71axn")
+
+[node name="InteractionArea" parent="Rooms/CurrentRoom/DoorLvl2" unique_id=1235387191 instance=ExtResource("4_bf53h")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CurrentRoom/DoorLvl2/InteractionArea" unique_id=1951056150]
+position = Vector2(19, -15)
+shape = SubResource("RectangleShape2D_dahhg")
+
+[node name="DoorLvl3" type="StaticBody2D" parent="Rooms/CurrentRoom" unique_id=1977703737]
+position = Vector2(222, 156)
+script = ExtResource("2_fgofq")
+
+[node name="Sprite" type="Sprite2D" parent="Rooms/CurrentRoom/DoorLvl3" unique_id=1890933924]
+scale = Vector2(0.3199988, 0.23999973)
+texture = ExtResource("3_2irst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CurrentRoom/DoorLvl3" unique_id=1883669551]
+shape = SubResource("RectangleShape2D_71axn")
+
+[node name="InteractionArea" parent="Rooms/CurrentRoom/DoorLvl3" unique_id=350184514 instance=ExtResource("4_bf53h")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CurrentRoom/DoorLvl3/InteractionArea" unique_id=964056458]
+position = Vector2(-23, -14)
+shape = SubResource("RectangleShape2D_dahhg")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Rooms" unique_id=1205515703 groups=["player"]]
 position = Vector2(3, 0)
+scale = Vector2(0.8800003, 0.35999972)
+collision_layer = 2
 script = ExtResource("2_kldst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/CharacterBody2D" unique_id=1629488047]
+scale = Vector2(3.909092, 6.6666718)
 shape = SubResource("CircleShape2D_3mrqo")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/CharacterBody2D" unique_id=890571048]

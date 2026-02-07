@@ -5,13 +5,13 @@ extends CharacterBody2D
 func _physics_process(delta):
 	var direction := Vector2.ZERO
 
-	if Input.is_action_pressed("Up"):
+	if Input.is_action_pressed("up"):
 		direction.y -= 1
-	if Input.is_action_pressed("Down"):
+	if Input.is_action_pressed("down"):
 		direction.y += 1
-	if Input.is_action_pressed("Left"):
+	if Input.is_action_pressed("left"):
 		direction.x -= 1
-	if Input.is_action_pressed("Right"):
+	if Input.is_action_pressed("right"):
 		direction.x += 1
 
 	direction = direction.normalized()

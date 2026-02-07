@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://22r3fvvuy5vb" path="res://Scenes/interactingobjecttest.gd" id="1_qo0f5"]
 [ext_resource type="PackedScene" uid="uid://bbx8ofq8sn8wj" path="res://interactions/interaction area/interaction_area.tscn" id="2_fcrdi"]
 [ext_resource type="Script" uid="uid://ddei5jj8xd1cv" path="res://Scenes/movementtemp.gd" id="3_afr6h"]
+[ext_resource type="PackedScene" uid="uid://bskhxt6p0ya60" path="res://interactions/popUp.tscn" id="4_550gs"]
 [ext_resource type="PackedScene" uid="uid://cncvinsuwrbp6" path="res://interactions/InteractionManager.tscn" id="4_qo0f5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afr6h"]
@@ -33,6 +34,9 @@ shape = SubResource("RectangleShape2D_afr6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/InteractionArea" unique_id=892943844]
 shape = SubResource("CircleShape2D_qo0f5")
+
+[node name="PopUp" parent="StaticBody2D" unique_id=1508108540 instance=ExtResource("4_550gs")]
+visible = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=817982342 groups=["player"]]
 collision_layer = 2

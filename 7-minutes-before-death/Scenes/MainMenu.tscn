@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b5gr4odnlepl2"]
 
-[ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_gl6un"]
+[ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_tt5f1"]
 
-[node name="Game" type="Node2D" unique_id=1085711166]
-script = ExtResource("1_gl6un")
+[node name="MainMenu" type="Node2D" unique_id=1085711166]
+script = ExtResource("1_tt5f1")
 
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
 

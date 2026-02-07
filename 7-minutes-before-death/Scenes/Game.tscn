@@ -11,8 +11,11 @@ script = ExtResource("1_gl6un")
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 255.0
-offset_bottom = 172.0
+offset_left = -256.0
+offset_top = -174.0
+offset_right = 254.0
+offset_bottom = 166.0
+scale = Vector2(1.0015937, 1)
 
 [node name="Panel" type="Panel" parent="MainMenuCamera/MainMenuHUD" unique_id=631519181]
 layout_mode = 1
@@ -51,6 +54,8 @@ _spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
+
+[node name="Corridor" type="TileMapLayer" parent="." unique_id=12712566]
 
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

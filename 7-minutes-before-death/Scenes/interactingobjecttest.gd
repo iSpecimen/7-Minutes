@@ -2,6 +2,7 @@ extends StaticBody2D
 
 @onready var interaction_area = $InteractionArea
 @onready var sprite = $Sprite2D
+@onready var popUp = $PopUp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _read():
 	print("hello")
+	popUp.visible = true
 	pass
 	#print("hello")
 	

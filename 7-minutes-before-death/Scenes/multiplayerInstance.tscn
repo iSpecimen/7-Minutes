@@ -164,6 +164,7 @@ radius = 15.235861
 height = 55.112118
 
 [node name="Player" type="CharacterBody2D" unique_id=1965378463]
+scale = Vector2(2, 2)
 script = ExtResource("1_a7iu2")
 
 [node name="PlayerSynchroniser" type="MultiplayerSynchronizer" parent="." unique_id=917504077]

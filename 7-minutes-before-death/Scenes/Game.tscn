@@ -1,11 +1,79 @@
-[gd_scene format=3 uid="uid://b5gr4odnlepl2"]
+[gd_scene format=4 uid="uid://b5gr4odnlepl2"]
 
 [ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_gl6un"]
+[ext_resource type="Texture2D" uid="uid://drjf8sa2qy2ik" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_E.png" id="2_bf53h"]
+[ext_resource type="Texture2D" uid="uid://hjdu0jbikfbj" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_N.png" id="3_71axn"]
+[ext_resource type="Texture2D" uid="uid://ej0usybbigcq" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_S.png" id="4_dahhg"]
+[ext_resource type="Texture2D" uid="uid://6n3rahid3sg1" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_W.png" id="5_3so38"]
+[ext_resource type="Texture2D" uid="uid://cxn10c12vsta0" path="res://tileMapSources/wadwa.png" id="6_3cx6b"]
+[ext_resource type="Texture2D" uid="uid://bonjwmtmbyd64" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_W.png" id="7_wxwew"]
+[ext_resource type="Texture2D" uid="uid://bef3e6k5tw86e" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_S.png" id="8_acvyw"]
+[ext_resource type="Texture2D" uid="uid://dg87vnj8um4ub" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_N.png" id="9_alh3a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4q8tf"]
+texture = ExtResource("2_bf53h")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3xnh"]
+texture = ExtResource("3_71axn")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8r6kd"]
+texture = ExtResource("4_dahhg")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfod6"]
+texture = ExtResource("5_3so38")
+texture_region_size = Vector2i(256, 128)
+0:0/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rajel"]
+texture = ExtResource("6_3cx6b")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvhu1"]
+texture = ExtResource("7_wxwew")
+margins = Vector2i(0, 127)
+texture_region_size = Vector2i(256, 385)
+0:2/0 = 0
+0:3/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -64, -128, 0, 0, 64, 128, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbihj"]
+texture = ExtResource("8_acvyw")
+texture_region_size = Vector2i(256, 512)
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raj38"]
+texture = ExtResource("9_alh3a")
+texture_region_size = Vector2i(256, 128)
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8e0uq"]
+tile_shape = 1
+tile_size = Vector2i(256, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4q8tf")
+sources/1 = SubResource("TileSetAtlasSource_x3xnh")
+sources/2 = SubResource("TileSetAtlasSource_8r6kd")
+sources/3 = SubResource("TileSetAtlasSource_tfod6")
+sources/4 = SubResource("TileSetAtlasSource_rajel")
+sources/5 = SubResource("TileSetAtlasSource_vvhu1")
+sources/6 = SubResource("TileSetAtlasSource_lbihj")
+sources/7 = SubResource("TileSetAtlasSource_raj38")
 
 [node name="Game" type="Node2D" unique_id=1085711166]
 script = ExtResource("1_gl6un")
 
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
+
+[node name="Corridor" type="TileMapLayer" parent="MainMenuCamera" unique_id=1991365588]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD/////AwAAAAMAAAAAAP7/AwAAAAMAAAD//wAAAwAAAAMAAAAAAP//AwAAAAMAAAAAAAAAAwAAAAMAAAD//wEAAwAAAAMAAAD+//3/BQAAAAAAAAD+//7/BQAAAAAAAAD///z/BQAAAAAAAAD///v/BQAAAAAAAAA=")
+tile_set = SubResource("TileSet_8e0uq")
 
 [node name="MainMenuHUD" type="Control" parent="MainMenuCamera" unique_id=926888057]
 unique_name_in_owner = true
@@ -54,8 +122,6 @@ _spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
-
-[node name="Corridor" type="TileMapLayer" parent="." unique_id=12712566]
 
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

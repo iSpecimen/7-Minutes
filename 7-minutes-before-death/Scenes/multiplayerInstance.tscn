@@ -2,6 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://bvdjyc4h84gcb" path="res://Assets/Tilemap/tilemap.png" id="1_8e0uw"]
 [ext_resource type="Script" uid="uid://b8bupbhexg4ng" path="res://Scenes/playerController.gd" id="1_a7iu2"]
+[ext_resource type="Script" uid="uid://jol6np7boab" path="res://Scenes/multiPInput.gd" id="2_er8v0"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_er8v0"]
+properties/0/path = NodePath(".:player_id")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0pknb"]
+properties/0/path = NodePath("InputSynchronizer:y_input_direction")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("InputSynchronizer:x_input_direction")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a7iu2"]
 texture = ExtResource("1_8e0uw")
@@ -148,6 +165,14 @@ height = 55.112118
 
 [node name="Player" type="CharacterBody2D" unique_id=1965378463]
 script = ExtResource("1_a7iu2")
+
+[node name="PlayerSynchroniser" type="MultiplayerSynchronizer" parent="." unique_id=917504077]
+replication_config = SubResource("SceneReplicationConfig_er8v0")
+
+[node name="InputSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1044057505]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_0pknb")
+script = ExtResource("2_er8v0")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=360671428]
 scale = Vector2(2, 2)

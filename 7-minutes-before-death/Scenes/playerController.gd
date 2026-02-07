@@ -4,30 +4,37 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var direction = 1 
+var x_direction
 
 @export var player_id := 1:
 	set(id):
 		player_id = id
-		
+		%InputSynchronizer.set_multiplayer_authority(id)
+
 func _apply_animation(delta):
 	return
 
 func _apply_movement_input(delta):
-	var x_direction := Input.get_axis("Left", "Right")
+	x_direction = %InputSynchronizer.x_input_direction
 	if x_direction:
 		velocity.x = x_direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	var y_direction := Input.get_axis("Up", "Down")
+	var y_direction = %InputSynchronizer.y_input_direction
 	if y_direction:
 		velocity.y = y_direction * SPEED
 	else:
-		velocity.y = move_toward(velocity.x, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 	return
 
 func _physics_process(delta: float) -> void:
+	if multiplayer.is_server():
+		_apply_movement_input(delta)
+	move_and_slide()
+		
+		
+		
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta
@@ -40,4 +47,4 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 
-	move_and_slide()
+	# move_and_slide()

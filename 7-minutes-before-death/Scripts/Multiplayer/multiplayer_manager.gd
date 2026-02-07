@@ -6,6 +6,7 @@ const SERVER_IP = "127.0.0.1"
 var multiplayer_scene = preload("res://Scenes/multiplayerInstance.tscn")
 
 var _players_spawn_node
+var spawn_point = 0
 
 func becomeHost():
 	print("Hosting..")
@@ -15,13 +16,13 @@ func becomeHost():
 	
 	var server_peer = ENetMultiplayerPeer.new()
 	server_peer.create_server(SERVER_PORT)
-	
+	_add_player_to_game(1)
 	multiplayer.multiplayer_peer = server_peer
 	
 	multiplayer.peer_connected.connect(_add_player_to_game)
 	multiplayer.peer_disconnected.connect(_del_player)
 	
-	_add_player_to_game(1)
+	
 	
 func joinHostGame():
 	print("Joining as Player 2..")
@@ -38,8 +39,9 @@ func _add_player_to_game(id: int):
 	var targetPlayer = multiplayer_scene.instantiate()
 	targetPlayer.player_id = id
 	targetPlayer.name = str(id)
-	
+	targetPlayer.global_position = Vector2(spawn_point, 0)
 	_players_spawn_node.add_child(targetPlayer, true)
+	spawn_point+= 50
 	
 func _del_player(id: int):
 	print("Player %s left the game!" % id)

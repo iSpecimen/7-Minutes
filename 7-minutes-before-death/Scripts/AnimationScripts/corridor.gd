@@ -20,8 +20,6 @@ func _ready() -> void:
 		self.add_child(void_block_start)
 		voidblocks+=1
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if blocks < 2:

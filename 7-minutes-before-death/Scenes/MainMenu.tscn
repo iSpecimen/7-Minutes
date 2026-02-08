@@ -1,18 +1,124 @@
 [gd_scene format=3 uid="uid://b5gr4odnlepl2"]
 
 [ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://c4ybvudmv46xy" path="res://Scripts/AnimationScripts/corridor.gd" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://d24sestwwo6d2" path="res://Assets/templateassets/gurney.png" id="3_8um5k"]
+[ext_resource type="Texture2D" uid="uid://d2jdvu17oykkj" path="res://Assets/templateassets/doctor.png" id="3_ghw46"]
+[ext_resource type="Texture2D" uid="uid://0rnj165pvo8g" path="res://Assets/templateassets/doctor2.png" id="4_df05h"]
+[ext_resource type="Texture2D" uid="uid://cfqgnaeaeegi1" path="res://Assets/templateassets/gurneyp1.png" id="4_xim88"]
+[ext_resource type="Texture2D" uid="uid://dr73my0bnfs1l" path="res://Assets/templateassets/GA.png" id="5_cmrfp"]
+[ext_resource type="Script" uid="uid://cnw3vfch5p8gi" path="res://Scripts/AnimationScripts/doctor.gd" id="5_df05h"]
+[ext_resource type="Texture2D" uid="uid://ce8kqa3o0rfxk" path="res://Assets/templateassets/GA2.png" id="6_loo7a"]
+[ext_resource type="Script" uid="uid://1bgspcq08ya6" path="res://Scripts/AnimationScripts/GuardianP2.gd" id="7_loo7a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xim88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8um5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xim88")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xim88"]
+properties/0/path = NodePath(".:frame")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_if7li"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cmrfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_loo7a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8um5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ghw46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_df05h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Node2D" unique_id=1085711166]
 script = ExtResource("1_tt5f1")
 
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
 
+[node name="Corridor" type="Node2D" parent="MainMenuCamera" unique_id=479213647]
+y_sort_enabled = true
+script = ExtResource("2_853f1")
+
+[node name="Gurney" type="Node2D" parent="MainMenuCamera" unique_id=629475395]
+position = Vector2(38, 24)
+scale = Vector2(1.5, 1.5)
+
+[node name="GurneyP1" type="AnimatedSprite2D" parent="MainMenuCamera/Gurney" unique_id=278456164]
+z_index = 1
+position = Vector2(10.000001, 10.666667)
+sprite_frames = SubResource("SpriteFrames_xim88")
+
+[node name="P1Sync" type="MultiplayerSynchronizer" parent="MainMenuCamera/Gurney/GurneyP1" unique_id=673978986]
+replication_config = SubResource("SceneReplicationConfig_xim88")
+
+[node name="GuardianP2" type="Node2D" parent="MainMenuCamera" unique_id=543062409]
+
+[node name="GuardianP2" type="AnimatedSprite2D" parent="MainMenuCamera/GuardianP2" unique_id=877741442]
+position = Vector2(-109, -12)
+sprite_frames = SubResource("SpriteFrames_if7li")
+script = ExtResource("7_loo7a")
+
+[node name="Doctors" type="Node2D" parent="MainMenuCamera" unique_id=1418592837]
+scale = Vector2(3, 3)
+
+[node name="Doctor" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=1448016335]
+sprite_frames = SubResource("SpriteFrames_8um5k")
+script = ExtResource("5_df05h")
+
+[node name="Doctor2" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=150751359]
+z_index = 2
+position = Vector2(39.333336, 5.666667)
+sprite_frames = SubResource("SpriteFrames_8um5k")
+script = ExtResource("5_df05h")
+
+[node name="Doctor3" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=1921528034]
+z_index = 2
+position = Vector2(19.666668, 15.666667)
+sprite_frames = SubResource("SpriteFrames_8um5k")
+script = ExtResource("5_df05h")
+
+[node name="Doctor4" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=1915304725]
+position = Vector2(22.666668, -8.333333)
+sprite_frames = SubResource("SpriteFrames_8um5k")
+script = ExtResource("5_df05h")
+
 [node name="MainMenuHUD" type="Control" parent="MainMenuCamera" unique_id=926888057]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 255.0
-offset_bottom = 172.0
+offset_left = 190.00002
+offset_top = 73.0
+offset_right = 445.0
+offset_bottom = 245.0
+scale = Vector2(1.4896207, 1.4896207)
 
 [node name="Panel" type="Panel" parent="MainMenuCamera/MainMenuHUD" unique_id=631519181]
 layout_mode = 1

@@ -35,7 +35,9 @@ func joinHostGame():
 
 func _add_player_to_game(id: int):
 	print("Player %s joined the game!" % id)
-	
+	if id == 1:
+		get_tree().get_current_scene().get_node("MainMenuCamera/Gurney/GurneyP1").frame = 1
+		
 	var targetPlayer = multiplayer_scene.instantiate()
 	targetPlayer.player_id = id
 	targetPlayer.name = str(id)

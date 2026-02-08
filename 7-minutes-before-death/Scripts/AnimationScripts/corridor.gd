@@ -19,7 +19,7 @@ func _ready() -> void:
 		void_block_start.name = "void" + str(blocks)
 		self.add_child(void_block_start)
 		voidblocks+=1
-	pass # Replace with function body.
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,74 +1,12 @@
 [gd_scene format=4 uid="uid://bna0cgl67jtr"]
 
-[ext_resource type="Texture2D" uid="uid://drjf8sa2qy2ik" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_E.png" id="1_sgkeh"]
-[ext_resource type="Texture2D" uid="uid://hjdu0jbikfbj" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_N.png" id="2_ig68k"]
-[ext_resource type="Texture2D" uid="uid://ej0usybbigcq" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_S.png" id="3_8vt43"]
-[ext_resource type="Texture2D" uid="uid://6n3rahid3sg1" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_W.png" id="4_wobda"]
-[ext_resource type="Texture2D" uid="uid://cxn10c12vsta0" path="res://tileMapSources/wadwa.png" id="5_8bdf0"]
-[ext_resource type="Texture2D" uid="uid://bonjwmtmbyd64" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_W.png" id="6_vg8qw"]
-[ext_resource type="Texture2D" uid="uid://bef3e6k5tw86e" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_S.png" id="7_mkwhv"]
-[ext_resource type="Texture2D" uid="uid://dg87vnj8um4ub" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_N.png" id="8_g1fth"]
+[ext_resource type="TileSet" uid="uid://w0rq1lcwugoc" path="res://tilesets/testassets.tres" id="1_byvxm"]
 [ext_resource type="Script" uid="uid://vcjwpi2n83jd" path="res://Scripts/AnimationScripts/corridormenumoving.gd" id="9_ig68k"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4q8tf"]
-texture = ExtResource("1_sgkeh")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3xnh"]
-texture = ExtResource("2_ig68k")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8r6kd"]
-texture = ExtResource("3_8vt43")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfod6"]
-texture = ExtResource("4_wobda")
-texture_region_size = Vector2i(256, 128)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -64, -128, 0, 0, 64, 128, 0)
-0:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rajel"]
-texture = ExtResource("5_8bdf0")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvhu1"]
-texture = ExtResource("6_vg8qw")
-margins = Vector2i(0, 127)
-texture_region_size = Vector2i(256, 385)
-0:2/0 = 0
-0:3/0 = 0
-0:1/0 = 0
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -64, -128, 0, 0, 64, 128, 0)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbihj"]
-texture = ExtResource("7_mkwhv")
-texture_region_size = Vector2i(256, 512)
-0:1/0 = 0
-0:2/0 = 0
-0:3/0 = 0
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raj38"]
-texture = ExtResource("8_g1fth")
-texture_region_size = Vector2i(256, 128)
-0:2/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_8e0uq"]
-tile_shape = 1
-tile_size = Vector2i(256, 128)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_4q8tf")
-sources/1 = SubResource("TileSetAtlasSource_x3xnh")
-sources/2 = SubResource("TileSetAtlasSource_8r6kd")
-sources/3 = SubResource("TileSetAtlasSource_tfod6")
-sources/4 = SubResource("TileSetAtlasSource_rajel")
-sources/5 = SubResource("TileSetAtlasSource_vvhu1")
-sources/6 = SubResource("TileSetAtlasSource_lbihj")
-sources/7 = SubResource("TileSetAtlasSource_raj38")
-
 [node name="CorridorBlock" type="TileMapLayer" unique_id=990258885]
+z_index = 10
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAAAAP//AwAAAAMAAAAAAP7/AwAAAAMAAAABAAAAAwAAAAMAAAABAAEAAwAAAAAAAAD/////AwAAAAMAAAAAAAAAAwAAAAMAAAAAAAEAAwAAAAMAAAAAAP3/AwAAAAMAAAABAP3/AwAAAAMAAAABAP7/AwAAAAMAAAABAP//AwAAAAMAAAACAP3/AwAAAAMAAAACAP7/AwAAAAMAAAABAPv/AwAAAAMAAAACAPv/AwAAAAMAAAABAPz/AwAAAAMAAAACAPz/AwAAAAMAAAACAPr/AwAAAAMAAAADAPr/AwAAAAMAAAADAPv/AwAAAAMAAAADAPz/AwAAAAMAAAACAPn/AwAAAAMAAAADAPn/AwAAAAMAAAADAPj/AwAAAAMAAAAEAPj/AwAAAAMAAAAEAPn/AwAAAAMAAAAEAPr/AwAAAAMAAAADAPf/AwAAAAMAAAAEAPf/AwAAAAMAAAAEAPb/AwAAAAMAAAAFAPb/AwAAAAMAAAAFAPf/AwAAAAMAAAAFAPj/AwAAAAMAAAAEAPX/AwAAAAMAAAD//wAAAwAAAAMAAAAAAAIAAwAAAAMAAAD//wEAAwAAAAMAAAD+/wEAAwAAAAMAAAD+/wIAAwAAAAMAAAD//wIAAwAAAAMAAAD+/wMAAwAAAAMAAAD//wMAAwAAAAMAAAD9/wMAAwAAAAMAAAD9/wQAAwAAAAMAAAD+/wQAAwAAAAMAAAD//wQAAwAAAAMAAAD8/wUAAwAAAAMAAAD8/wYAAwAAAAMAAAD9/wUAAwAAAAMAAAD9/wYAAwAAAAMAAAD+/wUAAwAAAAMAAAD+/wYAAwAAAAMAAAD7/wgAAwAAAAMAAAD7/wkAAwAAAAMAAAD8/wgAAwAAAAMAAAD8/wkAAwAAAAMAAAD7/wcAAwAAAAMAAAD8/wcAAwAAAAMAAAD9/wcAAwAAAAMAAAD9/wgAAwAAAAMAAAD8/woAAwAAAAMAAAD6/wkAAwAAAAMAAAD6/woAAwAAAAMAAAD6/wsAAwAAAAMAAAD7/woAAwAAAAMAAAD7/wsAAwAAAAMAAAD7/wwAAwAAAAMAAAABAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAAQAAwAAAAAAAAD//wUAAwAAAAAAAAD//wYAAwAAAAAAAAD+/wcAAwAAAAAAAAD+/wgAAwAAAAAAAAD9/wkAAwAAAAAAAAD9/woAAwAAAAAAAAD8/wsAAwAAAAAAAAD8/wwAAwAAAAAAAAACAAAAAwAAAAAAAAACAP//AwAAAAAAAAADAP7/AwAAAAAAAAADAP3/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAPv/AwAAAAAAAAAFAPr/AwAAAAAAAAAFAPn/AwAAAAAAAAAGAPj/AwAAAAAAAAAEAPL/BQAAAAAAAAADAPP/BQAAAAAAAAADAPT/BQAAAAAAAAACAPX/BQAAAAAAAAACAPb/BQAAAAAAAAABAPf/BQAAAAAAAAABAPj/BQAAAAAAAAAAAPn/BQAAAAAAAAAAAPr/BQAAAAAAAAD9////BQAAAAAAAAD+//7/BQAAAAAAAAD+//3/BQAAAAAAAAD///z/BQAAAAAAAAD///v/BQAAAAAAAAD9/wAABQAAAAAAAAD8/wEABQAAAAAAAAD7/wMABQAAAAAAAAD8/wIABQAAAAAAAAD7/wQABQAAAAAAAAD6/wUABQAAAAAAAAD6/wYABQAAAAAAAAD5/wcABQAAAAAAAAA=")
-tile_set = SubResource("TileSet_8e0uq")
+tile_map_data = PackedByteArray("AAAAAP//AwAAAAMAAAAAAP7/AwAAAAMAAAABAAAAAwAAAAMAAAD/////AwAAAAMAAAAAAAAAAwAAAAMAAAAAAAEAAwAAAAMAAAAAAP3/AwAAAAMAAAABAP3/AwAAAAMAAAABAP7/AwAAAAMAAAABAP//AwAAAAMAAAACAP3/AwAAAAMAAAACAP7/AwAAAAMAAAABAPv/AwAAAAMAAAACAPv/AwAAAAMAAAABAPz/AwAAAAMAAAACAPz/AwAAAAMAAAACAPr/AwAAAAMAAAADAPr/AwAAAAMAAAADAPv/AwAAAAMAAAADAPz/AwAAAAMAAAACAPn/AwAAAAMAAAADAPn/AwAAAAMAAAADAPj/AwAAAAMAAAAEAPj/AwAAAAMAAAAEAPn/AwAAAAMAAAAEAPr/AwAAAAMAAAADAPf/AwAAAAMAAAAEAPf/AwAAAAMAAAAEAPb/AwAAAAMAAAAFAPb/AwAAAAMAAAAFAPf/AwAAAAMAAAAFAPj/AwAAAAMAAAAEAPX/AwAAAAMAAAD//wAAAwAAAAMAAAAAAAIAAwAAAAMAAAD//wEAAwAAAAMAAAD+/wEAAwAAAAMAAAD+/wIAAwAAAAMAAAD//wIAAwAAAAMAAAD+/wMAAwAAAAMAAAD//wMAAwAAAAMAAAD9/wMAAwAAAAMAAAD9/wQAAwAAAAMAAAD+/wQAAwAAAAMAAAD//wQAAwAAAAMAAAD8/wUAAwAAAAMAAAD8/wYAAwAAAAMAAAD9/wUAAwAAAAMAAAD9/wYAAwAAAAMAAAD+/wUAAwAAAAMAAAD+/wYAAwAAAAMAAAD7/wgAAwAAAAMAAAD7/wkAAwAAAAMAAAD8/wgAAwAAAAMAAAD8/wkAAwAAAAMAAAD7/wcAAwAAAAMAAAD8/wcAAwAAAAMAAAD9/wcAAwAAAAMAAAD9/wgAAwAAAAMAAAD8/woAAwAAAAMAAAD6/wkAAwAAAAMAAAD6/woAAwAAAAMAAAD6/wsAAwAAAAMAAAD7/woAAwAAAAMAAAD7/wsAAwAAAAMAAAD7/wwAAwAAAAMAAAD5/wkABQAAAAAAAAD6/wcABQAAAAAAAAD6/wgABQAAAAAAAAD7/wYABQAAAAAAAAD7/wUABQAAAAAAAAD8/wQABQAAAAAAAAD8/wMABQAAAAAAAAD9/wIABQAAAAAAAAD9/wEABQAAAAAAAAD+/wAABQAAAAAAAAD+////BQAAAAAAAAD///7/BQAAAAAAAAD///3/BQAAAAAAAAAAAPz/BQAAAAAAAAAAAPv/BQAAAAAAAAABAPr/BQAAAAAAAAABAPn/BQAAAAAAAAACAPj/BQAAAAAAAAACAPf/BQAAAAAAAAADAPb/BQAAAAAAAAADAPX/BQAAAAAAAAAEAPT/BQAAAAAAAAA=")
+tile_set = ExtResource("1_byvxm")
 script = ExtResource("9_ig68k")

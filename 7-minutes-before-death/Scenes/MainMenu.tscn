@@ -75,48 +75,51 @@ script = ExtResource("1_tt5f1")
 y_sort_enabled = true
 script = ExtResource("2_853f1")
 
-[node name="Gurney" type="Node2D" parent="MainMenuCamera" unique_id=629475395]
+[node name="Sprites" type="Node2D" parent="MainMenuCamera" unique_id=486962340]
+z_index = 15
+
+[node name="Gurney" type="Node2D" parent="MainMenuCamera/Sprites" unique_id=629475395]
 position = Vector2(38, 24)
 scale = Vector2(1.5, 1.5)
 
-[node name="GurneyP1" type="AnimatedSprite2D" parent="MainMenuCamera/Gurney" unique_id=278456164]
+[node name="GurneyP1" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Gurney" unique_id=278456164]
 z_index = 1
 position = Vector2(10.000001, 10.666667)
 sprite_frames = SubResource("SpriteFrames_xim88")
 
-[node name="P1Sync" type="MultiplayerSynchronizer" parent="MainMenuCamera/Gurney/GurneyP1" unique_id=673978986]
+[node name="P1Sync" type="MultiplayerSynchronizer" parent="MainMenuCamera/Sprites/Gurney/GurneyP1" unique_id=673978986]
 replication_config = SubResource("SceneReplicationConfig_xim88")
 
-[node name="GuardianP2" type="Node2D" parent="MainMenuCamera" unique_id=543062409]
+[node name="GuardianP2" type="Node2D" parent="MainMenuCamera/Sprites" unique_id=543062409]
 
-[node name="guaP2" type="AnimatedSprite2D" parent="MainMenuCamera/GuardianP2" unique_id=877741442]
+[node name="guaP2" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/GuardianP2" unique_id=877741442]
 position = Vector2(-62, 42)
 sprite_frames = SubResource("SpriteFrames_if7li")
 script = ExtResource("7_loo7a")
 
-[node name="P2Sync" type="MultiplayerSynchronizer" parent="MainMenuCamera/GuardianP2/guaP2" unique_id=558339106]
+[node name="P2Sync" type="MultiplayerSynchronizer" parent="MainMenuCamera/Sprites/GuardianP2/guaP2" unique_id=558339106]
 replication_config = SubResource("SceneReplicationConfig_loo7a")
 
-[node name="Doctors" type="Node2D" parent="MainMenuCamera" unique_id=1418592837]
+[node name="Doctors" type="Node2D" parent="MainMenuCamera/Sprites" unique_id=1418592837]
 scale = Vector2(3, 3)
 
-[node name="Doctor" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=1448016335]
+[node name="Doctor" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=1448016335]
 sprite_frames = SubResource("SpriteFrames_8um5k")
 script = ExtResource("5_df05h")
 
-[node name="Doctor2" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=150751359]
+[node name="Doctor2" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=150751359]
 z_index = 2
 position = Vector2(39.333336, 5.666667)
 sprite_frames = SubResource("SpriteFrames_8um5k")
 script = ExtResource("5_df05h")
 
-[node name="Doctor3" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=1921528034]
+[node name="Doctor3" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=1921528034]
 z_index = 2
 position = Vector2(19.666668, 15.666667)
 sprite_frames = SubResource("SpriteFrames_8um5k")
 script = ExtResource("5_df05h")
 
-[node name="Doctor4" type="AnimatedSprite2D" parent="MainMenuCamera/Doctors" unique_id=1915304725]
+[node name="Doctor4" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=1915304725]
 position = Vector2(22.666668, -8.333333)
 sprite_frames = SubResource("SpriteFrames_8um5k")
 script = ExtResource("5_df05h")

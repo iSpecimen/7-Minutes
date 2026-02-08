@@ -1,0 +1,70 @@
+[gd_resource type="TileSet" format=3 uid="uid://w0rq1lcwugoc"]
+
+[ext_resource type="Texture2D" uid="uid://drjf8sa2qy2ik" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_E.png" id="1_ds2v0"]
+[ext_resource type="Texture2D" uid="uid://hjdu0jbikfbj" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_N.png" id="2_gnpf0"]
+[ext_resource type="Texture2D" uid="uid://ej0usybbigcq" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_S.png" id="3_yngqs"]
+[ext_resource type="Texture2D" uid="uid://6n3rahid3sg1" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/floor_W.png" id="4_3m1j3"]
+[ext_resource type="Texture2D" uid="uid://cxn10c12vsta0" path="res://tileMapSources/wadwa.png" id="5_62xdo"]
+[ext_resource type="Texture2D" uid="uid://bonjwmtmbyd64" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_W.png" id="6_56l40"]
+[ext_resource type="Texture2D" uid="uid://bef3e6k5tw86e" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_S.png" id="7_pt1iu"]
+[ext_resource type="Texture2D" uid="uid://dg87vnj8um4ub" path="res://Assets/kenney_isometric-miniature-prototype/Isometric/wall_N.png" id="8_g2maa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4q8tf"]
+texture = ExtResource("1_ds2v0")
+texture_region_size = Vector2i(256, 128)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -64, -128, 0, 0, 64, 128, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3xnh"]
+texture = ExtResource("2_gnpf0")
+texture_region_size = Vector2i(256, 128)
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8r6kd"]
+texture = ExtResource("3_yngqs")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfod6"]
+texture = ExtResource("4_3m1j3")
+texture_region_size = Vector2i(256, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -64, -128, 0, 0, 64, 128, 0)
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rajel"]
+texture = ExtResource("5_62xdo")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvhu1"]
+texture = ExtResource("6_56l40")
+texture_region_size = Vector2i(256, 385)
+0:2/0 = 0
+0:3/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbihj"]
+texture = ExtResource("7_pt1iu")
+texture_region_size = Vector2i(256, 512)
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raj38"]
+texture = ExtResource("8_g2maa")
+texture_region_size = Vector2i(256, 128)
+0:2/0 = 0
+0:3/0 = 0
+
+[resource]
+resource_name = "MainAssets"
+tile_shape = 1
+tile_size = Vector2i(256, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4q8tf")
+sources/1 = SubResource("TileSetAtlasSource_x3xnh")
+sources/2 = SubResource("TileSetAtlasSource_8r6kd")
+sources/3 = SubResource("TileSetAtlasSource_tfod6")
+sources/4 = SubResource("TileSetAtlasSource_rajel")
+sources/5 = SubResource("TileSetAtlasSource_vvhu1")
+sources/6 = SubResource("TileSetAtlasSource_lbihj")
+sources/7 = SubResource("TileSetAtlasSource_raj38")

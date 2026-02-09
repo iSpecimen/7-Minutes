@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://biabpiabhp7fr"]
 
 [ext_resource type="TileSet" uid="uid://w0rq1lcwugoc" path="res://tilesets/testassets.tres" id="1_mgxbb"]
-[ext_resource type="Script" uid="uid://b6icylcs5rres" path="res://Scenes/void.gd" id="2_moqxf"]
+[ext_resource type="Script" uid="uid://b6icylcs5rres" path="res://Scripts/AnimationScripts/void.gd" id="2_moqxf"]
 
 [node name="void" type="TileMapLayer" unique_id=1989225082]
 y_sort_enabled = true

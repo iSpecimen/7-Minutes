@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d3of633nmkams"]
 
 [ext_resource type="Texture2D" uid="uid://bvdjyc4h84gcb" path="res://Assets/Tilemap/tilemap.png" id="1_8e0uw"]
-[ext_resource type="Script" uid="uid://b8bupbhexg4ng" path="res://Scenes/playerController.gd" id="1_a7iu2"]
-[ext_resource type="Script" uid="uid://jol6np7boab" path="res://Scenes/multiPInput.gd" id="2_er8v0"]
-[ext_resource type="Script" uid="uid://mrifu0j2uyek" path="res://Scenes/animateplayer.gd" id="4_0pknb"]
+[ext_resource type="Script" uid="uid://b8bupbhexg4ng" path="res://Scripts/playerController.gd" id="1_a7iu2"]
+[ext_resource type="Script" uid="uid://jol6np7boab" path="res://Scripts/multiPInput.gd" id="2_er8v0"]
+[ext_resource type="Script" uid="uid://mrifu0j2uyek" path="res://Scripts/AnimationScripts/animateplayer.gd" id="4_0pknb"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_er8v0"]
 properties/0/path = NodePath(".:player_id")

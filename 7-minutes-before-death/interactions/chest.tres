@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Chest" format=3 uid="uid://x6qky7royawu"]
+
+[ext_resource type="Texture2D" uid="uid://cqcnjh3x1pnnk" path="res://tileMapSources/Monke.png" id="1_bj2rx"]
+[ext_resource type="Script" uid="uid://bec7tvgp3jafi" path="res://Chest.gd" id="2_cdbqj"]
+
+[resource]
+script = ExtResource("2_cdbqj")
+size = 1
+title = "Small chest"
+icon = ExtResource("1_bj2rx")
+metadata/_custom_type_script = "uid://bec7tvgp3jafi"

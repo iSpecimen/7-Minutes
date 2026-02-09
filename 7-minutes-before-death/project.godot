@@ -48,6 +48,7 @@ change_room_debug={
 
 MultiplayerManager="*uid://oeprqrkadcsu"
 InteractionManager="*uid://cncvinsuwrbp6"
+ChestManager="*uid://b2hmojglpp6be"
 
 [display]
 

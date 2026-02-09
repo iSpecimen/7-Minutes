@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://rolguicunnxo"]
 
 [ext_resource type="Texture2D" uid="uid://eiw8ckbnrkox" path="res://icon.svg" id="1_acft5"]
-[ext_resource type="Script" uid="uid://22r3fvvuy5vb" path="res://Scenes/interactingobjecttest.gd" id="1_qo0f5"]
+[ext_resource type="Script" uid="uid://22r3fvvuy5vb" path="res://Scripts/interactingobjecttest.gd" id="1_qo0f5"]
 [ext_resource type="PackedScene" uid="uid://bbx8ofq8sn8wj" path="res://interactions/interaction area/interaction_area.tscn" id="2_fcrdi"]
-[ext_resource type="Script" uid="uid://ddei5jj8xd1cv" path="res://Scenes/movementtemp.gd" id="3_afr6h"]
+[ext_resource type="Script" uid="uid://ddei5jj8xd1cv" path="res://Scripts/movementtemp.gd" id="3_afr6h"]
 [ext_resource type="PackedScene" uid="uid://bskhxt6p0ya60" path="res://interactions/popUp.tscn" id="4_550gs"]
 [ext_resource type="PackedScene" uid="uid://cncvinsuwrbp6" path="res://interactions/InteractionManager.tscn" id="4_qo0f5"]
+[ext_resource type="PackedScene" uid="uid://da5i8oj85s0mv" path="res://interactions/interactable2.tscn" id="7_4cdtk"]
+[ext_resource type="Resource" uid="uid://x6qky7royawu" path="res://interactions/chest.tres" id="8_y1wll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afr6h"]
 size = Vector2(73, 68)
@@ -19,6 +21,7 @@ size = Vector2(80, 70.5)
 [node name="InteractionTest" type="Node2D" unique_id=17244616]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=372830137]
+visible = false
 script = ExtResource("1_qo0f5")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1241280743]
@@ -54,3 +57,8 @@ shape = SubResource("RectangleShape2D_550gs")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1330300735]
 
 [node name="InteractionManager" parent="CharacterBody2D" unique_id=1619851420 instance=ExtResource("4_qo0f5")]
+
+[node name="Interactable2" parent="." unique_id=826874854 instance=ExtResource("7_4cdtk")]
+position = Vector2(282, -135)
+collision_mask = 2
+item = ExtResource("8_y1wll")

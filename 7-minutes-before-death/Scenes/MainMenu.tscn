@@ -174,6 +174,7 @@ spawn_path = NodePath("../Players")
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
 
 [node name="P1Lobby" parent="." unique_id=1443757838 instance=ExtResource("11_bktvt")]
+visible = false
 
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

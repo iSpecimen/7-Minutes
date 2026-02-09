@@ -30,14 +30,15 @@ func joinHostGame():
 	client_peer.create_client(SERVER_IP, SERVER_PORT)
 	
 	multiplayer.multiplayer_peer = client_peer
-	
-	
+
+
 
 func _add_player_to_game(id: int):
 	print("Player %s joined the game!" % id)
 	if id == 1:
-		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/Gurney/GurneyP1").frame = 1
+		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/Gurney/GurneyP1").frame = 11
 	else:
+		get_tree().get_current_scene().get_node("MainMenuCamera/Corridor").game_ready = true
 		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/GuardianP2/guaP2").show()
 	var targetPlayer = multiplayer_scene.instantiate()
 	targetPlayer.player_id = id

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://da5i8oj85s0mv"]
+
+[ext_resource type="Script" uid="uid://cewqg3ihhy4uc" path="res://Scripts/interactable_2.gd" id="1_cai8x"]
+[ext_resource type="Texture2D" uid="uid://eiw8ckbnrkox" path="res://icon.svg" id="2_h5lin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bne65"]
+size = Vector2(200, 132.5)
+
+[node name="Interactable2" type="Area2D" unique_id=826874854]
+script = ExtResource("1_cai8x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1519950655]
+position = Vector2(1, 1)
+scale = Vector2(0.3922122, 0.32434115)
+texture = ExtResource("2_h5lin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446704019]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_bne65")
+
+[node name="Label" type="Label" parent="." unique_id=645661508]
+offset_left = -48.0
+offset_top = -45.0
+offset_right = 57.0
+offset_bottom = -22.0
+text = "[E] to interact"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

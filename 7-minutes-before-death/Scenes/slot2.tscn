@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cys1yhjxyvdrw"]
+
+[ext_resource type="Script" uid="uid://bp05650gg32gi" path="res://Scripts/slot_2.gd" id="1_2xxci"]
+
+[node name="Panel" type="Panel" unique_id=2058382125]
+light_mask = 3
+visibility_layer = 3
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2xxci")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1712511464]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=1602878071]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

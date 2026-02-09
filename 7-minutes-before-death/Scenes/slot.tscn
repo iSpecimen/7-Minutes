@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dg02jvlo3c6vv"]
+
+[ext_resource type="Script" uid="uid://boeykuu868pnp" path="res://Scripts/slot.gd" id="1_luhj6"]
+
+[node name="Slot" type="Panel" unique_id=67916314]
+script = ExtResource("1_luhj6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2126409562]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=149193811]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

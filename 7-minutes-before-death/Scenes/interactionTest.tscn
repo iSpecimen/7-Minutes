@@ -34,6 +34,7 @@ position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_afr6h")
 
 [node name="InteractionArea" parent="StaticBody2D" unique_id=1204932933 instance=ExtResource("2_fcrdi")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/InteractionArea" unique_id=892943844]
 shape = SubResource("CircleShape2D_qo0f5")
@@ -46,12 +47,12 @@ collision_layer = 2
 script = ExtResource("3_afr6h")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1173802404]
-position = Vector2(263, 50)
+position = Vector2(2, 3)
 scale = Vector2(0.6015625, 0.53125)
 texture = ExtResource("1_acft5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=336452641]
-position = Vector2(263, 49.75)
+position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_550gs")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1330300735]

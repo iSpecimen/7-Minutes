@@ -1,7 +1,7 @@
 extends Control
  
 @export var inventory : GridContainer
-@onready var slot_node : PackedScene = preload("res://scenes/slot.tscn")
+@onready var slot_node : PackedScene = preload("res://scenes/slot2.tscn")
  
 var storage : Dictionary
 var current_chest = null

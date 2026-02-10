@@ -11,6 +11,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#if $/root/Game.gameReady and get_multiplayer_authority() != multiplayer.get_unique_id():
-	if $/root/Game.gameReady:
-		$"..".global_position = get_node("/root/Game/Players/" + str(get_multiplayer_authority())).global_position
+	#if $/root/Game.gameReady:
+		#$"..".global_position = get_node("/root/Game/Players/" + str(get_multiplayer_authority())).global_position
 	pass

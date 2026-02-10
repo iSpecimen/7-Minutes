@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 		x_input_direction = Input.get_axis("Left", "Right")
 		y_input_direction = Input.get_axis("Up", "Down")
 		
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

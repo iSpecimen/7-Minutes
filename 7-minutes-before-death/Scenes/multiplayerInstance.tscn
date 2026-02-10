@@ -202,7 +202,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1965378463]
-visible = false
 scale = Vector2(2, 2)
 script = ExtResource("1_a7iu2")
 

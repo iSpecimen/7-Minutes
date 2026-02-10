@@ -1,8 +1,8 @@
-[gd_scene format=4 uid="uid://c3ml66tba7jyw"]
+[gd_scene format=4 uid="uid://dba7fnx3jcdx0"]
 
 [ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_tt5f1"]
-[ext_resource type="Script" uid="uid://bsqx3fi2blf1e" path="res://Scenes/sprites.gd" id="2_8wkh3"]
-[ext_resource type="Script" uid="uid://b6et81wb6ve16" path="res://Scenes/gameCamera.gd" id="2_72gy5"]
+[ext_resource type="Script" path="res://Scenes/sprites.gd" id="2_8wkh3"]
+[ext_resource type="Script" path="res://Scenes/gameCamera.gd" id="2_72gy5"]
 [ext_resource type="Script" uid="uid://c4ybvudmv46xy" path="res://Scripts/AnimationScripts/corridor.gd" id="2_853f1"]
 [ext_resource type="Texture2D" uid="uid://d24sestwwo6d2" path="res://Assets/templateassets/gurney.png" id="3_8um5k"]
 [ext_resource type="Texture2D" uid="uid://d2jdvu17oykkj" path="res://Assets/templateassets/doctor.png" id="3_ghw46"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://q2gi2vcbvvi3" path="res://Assets/kenney_sketch-desert/Tiles/tree_N.png" id="12_awugs"]
 [ext_resource type="PackedScene" uid="uid://bna0cgl67jtr" path="res://Scenes/corridor_block.tscn" id="14_2jq6c"]
 [ext_resource type="Texture2D" uid="uid://bp0s20euojoho" path="res://Assets/kenney_isometric-miniature-prototype/Characters/Human/Human_0_Run0.png" id="16_8wkh3"]
+[ext_resource type="Script" uid="uid://6hcghq2oq412" path="res://Scenes/boardxd.gd" id="16_m56cs"]
+[ext_resource type="PackedScene" uid="uid://bl5mw66w8hpb8" path="res://Scenes/board_b.tscn" id="19_5kvh0"]
+[ext_resource type="Script" uid="uid://7lwsmpl5whmq" path="res://Scenes/boards.gd" id="19_l1qm6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xim88"]
 animations = [{
@@ -118,7 +121,16 @@ radius = 15.0
 height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jq6c"]
-size = Vector2(78, 91)
+size = Vector2(77, 88.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bktvt"]
+size = Vector2(33.329224, 54.962524)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1qm6"]
+size = Vector2(50.00055, 75.40314)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nkd0"]
+size = Vector2(34.58023, 49.262756)
 
 [sub_resource type="LabelSettings" id="LabelSettings_awugs"]
 font_size = 32
@@ -152,7 +164,7 @@ libraries/ = SubResource("AnimationLibrary_72gy5")
 [node name="GuardianP2" type="Node2D" parent="Sprites" unique_id=543062409]
 
 [node name="guaP2" type="AnimatedSprite2D" parent="Sprites/GuardianP2" unique_id=877741442]
-position = Vector2(42, 23)
+position = Vector2(34, 25)
 sprite_frames = SubResource("SpriteFrames_if7li")
 script = ExtResource("7_loo7a")
 
@@ -271,10 +283,15 @@ z_index = 101
 y_sort_enabled = true
 position = Vector2(1406, -706)
 
-[node name="Boardxd" type="StaticBody2D" parent="Map/InteractablesP2" unique_id=1118878982]
-position = Vector2(-516, 147)
+[node name="BBoards" type="Node2D" parent="Map/InteractablesP2" unique_id=1665288612]
+position = Vector2(-781, 338)
 
-[node name="InteractLabel" parent="Map/InteractablesP2/Boardxd" unique_id=2112510270 instance=ExtResource("11_awugs")]
+[node name="BoardB1" type="StaticBody2D" parent="Map/InteractablesP2/BBoards" unique_id=1118878982]
+position = Vector2(-16, -58)
+script = ExtResource("16_m56cs")
+ui_scene = ExtResource("11_awugs")
+
+[node name="InteractLabel" parent="Map/InteractablesP2/BBoards/BoardB1" unique_id=2112510270 instance=ExtResource("11_awugs")]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,22 +303,61 @@ offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Map/InteractablesP2/Boardxd" unique_id=875759258]
+[node name="Sprite2D" type="Sprite2D" parent="Map/InteractablesP2/BBoards/BoardB1" unique_id=875759258]
 position = Vector2(-14, 6)
 scale = Vector2(0.4929303, 0.4929303)
 texture = ExtResource("16_8wkh3")
 
-[node name="CollisionHitBox" type="CollisionShape2D" parent="Map/InteractablesP2/Boardxd" unique_id=548872809]
-position = Vector2(-12.999939, 73)
-shape = SubResource("CapsuleShape2D_c7wuu")
+[node name="CollisionHitBox" type="CollisionShape2D" parent="Map/InteractablesP2/BBoards/BoardB1" unique_id=548872809]
+position = Vector2(-22, 56)
+rotation = 1.0704852
+shape = SubResource("RectangleShape2D_bktvt")
 
-[node name="Area2D" type="Area2D" parent="Map/InteractablesP2/Boardxd" unique_id=762099002]
+[node name="Area2D" type="Area2D" parent="Map/InteractablesP2/BBoards/BoardB1" unique_id=762099002]
 position = Vector2(-15, 73)
 collision_layer = 4
 
-[node name="InteractionRange" type="CollisionShape2D" parent="Map/InteractablesP2/Boardxd/Area2D" unique_id=1781892513]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_2jq6c")
+[node name="InteractionRange" type="CollisionShape2D" parent="Map/InteractablesP2/BBoards/BoardB1/Area2D" unique_id=1781892513]
+position = Vector2(0.27197266, -2.6357727)
+rotation = -0.48657438
+shape = SubResource("RectangleShape2D_l1qm6")
+debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
+
+[node name="BoardB2" type="StaticBody2D" parent="Map/InteractablesP2/BBoards" unique_id=2135824397]
+position = Vector2(63, -99)
+script = ExtResource("16_m56cs")
+ui_scene = ExtResource("11_awugs")
+
+[node name="InteractLabel" parent="Map/InteractablesP2/BBoards/BoardB2" unique_id=1415352848 instance=ExtResource("11_awugs")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = 19.0
+offset_right = -82.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/InteractablesP2/BBoards/BoardB2" unique_id=1713199226]
+position = Vector2(-14, 6)
+scale = Vector2(0.4929303, 0.4929303)
+texture = ExtResource("16_8wkh3")
+
+[node name="CollisionHitBox" type="CollisionShape2D" parent="Map/InteractablesP2/BBoards/BoardB2" unique_id=1069441014]
+position = Vector2(-22, 57)
+rotation = 1.0704852
+shape = SubResource("RectangleShape2D_1nkd0")
+
+[node name="Area2D" type="Area2D" parent="Map/InteractablesP2/BBoards/BoardB2" unique_id=1558688093]
+position = Vector2(-15, 73)
+collision_layer = 4
+
+[node name="InteractionRange" type="CollisionShape2D" parent="Map/InteractablesP2/BBoards/BoardB2/Area2D" unique_id=1580016713]
+position = Vector2(0.27197266, -2.6357727)
+rotation = -0.48657438
+shape = SubResource("RectangleShape2D_l1qm6")
 debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
 
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
@@ -381,6 +437,18 @@ layout_mode = 2
 text = "Join Game
 "
 
+[node name="Boards" type="Control" parent="MainMenuCamera" unique_id=1813326408]
+visible = false
+z_index = 500
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("19_l1qm6")
+
+[node name="BoardB" parent="MainMenuCamera/Boards" unique_id=1066540754 instance=ExtResource("19_5kvh0")]
+layout_mode = 0
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1530712542]
 _spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
 spawn_path = NodePath("../Players")
@@ -389,11 +457,13 @@ spawn_path = NodePath("../Players")
 replication_config = SubResource("SceneReplicationConfig_c7wuu")
 
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
-z_index = 100
+z_index = 102
 
 [connection signal="body_entered" from="Map/InteractablesP1/PlantBitch/Area2D" to="Map/InteractablesP1/PlantBitch" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Map/InteractablesP1/PlantBitch/Area2D" to="Map/InteractablesP1/PlantBitch" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Map/InteractablesP2/Boardxd/Area2D" to="Map/InteractablesP2/Boardxd" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Map/InteractablesP2/Boardxd/Area2D" to="Map/InteractablesP2/Boardxd" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Map/InteractablesP2/BBoards/BoardB1/Area2D" to="Map/InteractablesP2/BBoards/BoardB1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Map/InteractablesP2/BBoards/BoardB1/Area2D" to="Map/InteractablesP2/BBoards/BoardB1" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Map/InteractablesP2/BBoards/BoardB2/Area2D" to="Map/InteractablesP2/BBoards/BoardB2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Map/InteractablesP2/BBoards/BoardB2/Area2D" to="Map/InteractablesP2/BBoards/BoardB2" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

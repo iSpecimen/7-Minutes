@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bl5mw66w8hpb8"]
+
+[node name="BoardB" type="Control" unique_id=1066540754]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=870508283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_right = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=553082141]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=1890036015]
+layout_mode = 2
+text = "Before we learnt to read or write,
+Colour and shape was our light,
+Small lessons stacked from start to end, 
+In ordered hues, the clues descend."

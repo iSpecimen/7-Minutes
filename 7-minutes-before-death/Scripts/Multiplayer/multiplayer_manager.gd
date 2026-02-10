@@ -7,6 +7,7 @@ var multiplayer_scene = preload("res://Scenes/multiplayerInstance.tscn")
 
 var _players_spawn_node
 var spawn_point = [Vector2(-62,42), Vector2(20,-10)]
+var players = []
 
 func becomeHost():
 	print("Hosting..")
@@ -31,8 +32,6 @@ func joinHostGame():
 	
 	multiplayer.multiplayer_peer = client_peer
 	
-	
-
 func _add_player_to_game(id: int):
 	print("Player %s joined the game!" % id)
 	var targetPlayer = multiplayer_scene.instantiate()
@@ -48,6 +47,8 @@ func _add_player_to_game(id: int):
 		$/root/Game.allplayersconnected = true
 	
 	_players_spawn_node.add_child(targetPlayer, true)
+	print("Adding Player:" + targetPlayer.name)
+	players.append(targetPlayer)
 	
 	
 func _del_player(id: int):
@@ -55,3 +56,5 @@ func _del_player(id: int):
 	if not _players_spawn_node.has_node(str(id)):
 		return
 	_players_spawn_node.get_node(str(id)).queue_free()
+	
+	

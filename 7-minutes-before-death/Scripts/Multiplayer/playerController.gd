@@ -37,6 +37,8 @@ func _physics_process(delta: float) -> void:
 	if multiplayer.is_server():
 		_apply_movement_input(delta)
 	move_and_slide()
+	if self.name.length() > 1:
+		get_node("/root/Game/Sprites/GuardianP2").global_position = self.global_position
 		
 		
 		

@@ -1,9 +1,9 @@
 extends Control
  
 @export var inventory : GridContainer
-@onready var slot_node : PackedScene = preload("res://scenes/slot2.tscn")
+@onready var slot_node : PackedScene = preload("res://Scenes/JuliaInteractScenes/slot2.tscn")
  
-var storage : Dictionary
+var storage : Dictionary = {}
 var current_chest = null
  
 #func _ready():

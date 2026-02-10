@@ -1,25 +1,25 @@
 [gd_scene format=3 uid="uid://b5gr4odnlepl2"]
 
-[ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_hu3kb"]
-[ext_resource type="Script" uid="uid://c4ybvudmv46xy" path="res://Scripts/AnimationScripts/corridor.gd" id="2_vv4ip"]
-[ext_resource type="Texture2D" uid="uid://d24sestwwo6d2" path="res://Assets/templateassets/gurney.png" id="3_awugs"]
-[ext_resource type="Texture2D" uid="uid://cfqgnaeaeegi1" path="res://Assets/templateassets/gurneyp1.png" id="4_c7wuu"]
-[ext_resource type="Texture2D" uid="uid://dr73my0bnfs1l" path="res://Assets/templateassets/GA.png" id="5_2jq6c"]
-[ext_resource type="Texture2D" uid="uid://ce8kqa3o0rfxk" path="res://Assets/templateassets/GA2.png" id="6_72gy5"]
-[ext_resource type="Script" uid="uid://1bgspcq08ya6" path="res://Scripts/AnimationScripts/GuardianP2.gd" id="7_8wkh3"]
-[ext_resource type="Texture2D" uid="uid://d2jdvu17oykkj" path="res://Assets/templateassets/doctor.png" id="8_m56cs"]
-[ext_resource type="Texture2D" uid="uid://0rnj165pvo8g" path="res://Assets/templateassets/doctor2.png" id="9_5kvh0"]
-[ext_resource type="Script" uid="uid://cnw3vfch5p8gi" path="res://Scripts/AnimationScripts/doctor.gd" id="10_l1qm6"]
-[ext_resource type="PackedScene" uid="uid://iixbl05marhe" path="res://Scenes/p1Lobby.tscn" id="11_bktvt"]
+[ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_w25ta"]
+[ext_resource type="Script" uid="uid://c4ybvudmv46xy" path="res://Scripts/AnimationScripts/corridor.gd" id="2_6cnuv"]
+[ext_resource type="Texture2D" uid="uid://d24sestwwo6d2" path="res://Assets/templateassets/gurney.png" id="3_kw7o1"]
+[ext_resource type="Texture2D" uid="uid://cfqgnaeaeegi1" path="res://Assets/templateassets/gurneyp1.png" id="4_00pho"]
+[ext_resource type="Texture2D" uid="uid://dr73my0bnfs1l" path="res://Assets/templateassets/GA.png" id="5_nksuw"]
+[ext_resource type="Texture2D" uid="uid://ce8kqa3o0rfxk" path="res://Assets/templateassets/GA2.png" id="6_rubia"]
+[ext_resource type="Script" uid="uid://1bgspcq08ya6" path="res://Scripts/AnimationScripts/GuardianP2.gd" id="7_imlpl"]
+[ext_resource type="Texture2D" uid="uid://d2jdvu17oykkj" path="res://Assets/templateassets/doctor.png" id="8_4okel"]
+[ext_resource type="Texture2D" uid="uid://0rnj165pvo8g" path="res://Assets/templateassets/doctor2.png" id="9_5okfl"]
+[ext_resource type="Script" uid="uid://cnw3vfch5p8gi" path="res://Scripts/AnimationScripts/doctor.gd" id="10_d0p6g"]
+[ext_resource type="PackedScene" uid="uid://iixbl05marhe" path="res://Scenes/p1Lobby.tscn" id="11_8su41"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xim88"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_awugs")
+"texture": ExtResource("3_kw7o1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_c7wuu")
+"texture": ExtResource("4_00pho")
 }],
 "loop": true,
 "name": &"default",
@@ -35,10 +35,10 @@ properties/0/replication_mode = 1
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_2jq6c")
+"texture": ExtResource("5_nksuw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_72gy5")
+"texture": ExtResource("6_rubia")
 }],
 "loop": true,
 "name": &"default",
@@ -57,10 +57,10 @@ properties/1/replication_mode = 1
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_m56cs")
+"texture": ExtResource("8_4okel")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_5kvh0")
+"texture": ExtResource("9_5okfl")
 }],
 "loop": true,
 "name": &"default",
@@ -68,13 +68,13 @@ animations = [{
 }]
 
 [node name="MainMenu" type="Node2D" unique_id=1085711166]
-script = ExtResource("1_hu3kb")
+script = ExtResource("1_w25ta")
 
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
 
 [node name="Corridor" type="Node2D" parent="MainMenuCamera" unique_id=479213647]
 y_sort_enabled = true
-script = ExtResource("2_vv4ip")
+script = ExtResource("2_6cnuv")
 
 [node name="Sprites" type="Node2D" parent="MainMenuCamera" unique_id=486962340]
 z_index = 15
@@ -96,7 +96,7 @@ replication_config = SubResource("SceneReplicationConfig_xim88")
 [node name="guaP2" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/GuardianP2" unique_id=877741442]
 position = Vector2(-62, 42)
 sprite_frames = SubResource("SpriteFrames_if7li")
-script = ExtResource("7_8wkh3")
+script = ExtResource("7_imlpl")
 
 [node name="P2Sync" type="MultiplayerSynchronizer" parent="MainMenuCamera/Sprites/GuardianP2/guaP2" unique_id=558339106]
 replication_config = SubResource("SceneReplicationConfig_loo7a")
@@ -106,24 +106,24 @@ scale = Vector2(3, 3)
 
 [node name="Doctor" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=1448016335]
 sprite_frames = SubResource("SpriteFrames_8um5k")
-script = ExtResource("10_l1qm6")
+script = ExtResource("10_d0p6g")
 
 [node name="Doctor2" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=150751359]
 z_index = 2
 position = Vector2(39.333336, 5.666667)
 sprite_frames = SubResource("SpriteFrames_8um5k")
-script = ExtResource("10_l1qm6")
+script = ExtResource("10_d0p6g")
 
 [node name="Doctor3" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=1921528034]
 z_index = 2
 position = Vector2(19.666668, 15.666667)
 sprite_frames = SubResource("SpriteFrames_8um5k")
-script = ExtResource("10_l1qm6")
+script = ExtResource("10_d0p6g")
 
 [node name="Doctor4" type="AnimatedSprite2D" parent="MainMenuCamera/Sprites/Doctors" unique_id=1915304725]
 position = Vector2(22.666668, -8.333333)
 sprite_frames = SubResource("SpriteFrames_8um5k")
-script = ExtResource("10_l1qm6")
+script = ExtResource("10_d0p6g")
 
 [node name="MainMenuHUD" type="Control" parent="MainMenuCamera" unique_id=926888057]
 unique_name_in_owner = true
@@ -168,12 +168,14 @@ text = "Join Game
 "
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1530712542]
-_spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
 spawn_path = NodePath("../Players")
+spawn_limit = 2
 
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
+z_index = 100
 
-[node name="P1Lobby" parent="." unique_id=1443757838 instance=ExtResource("11_bktvt")]
+[node name="P1Lobby" parent="." unique_id=1443757838 instance=ExtResource("11_8su41")]
+visible = false
 
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

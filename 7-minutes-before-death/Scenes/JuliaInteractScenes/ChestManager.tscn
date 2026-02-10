@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2hmojglpp6be"]
 
-[ext_resource type="Script" uid="uid://b180ph5jsj2cr" path="res://Scripts/chest_manager.gd" id="1_lilgy"]
+[ext_resource type="Script" uid="uid://b180ph5jsj2cr" path="res://Scripts/JuliaInteractionStuff/chest_manager.gd" id="1_lilgy"]
 
 [node name="ChestManager" type="Control" unique_id=815944864 node_paths=PackedStringArray("inventory")]
 layout_mode = 3

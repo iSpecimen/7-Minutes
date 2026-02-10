@@ -2,8 +2,8 @@ extends Node2D
 
 var blocks = 0
 var voidblocks = 0
-var corridor_block = preload("res://Scenes/corridor_block.tscn")
-var void_blocks = preload("res://Scenes/void.tscn")
+var corridor_block = preload("res://Scenes/MultiplayerNMainMenu/corridor_block.tscn")
+var void_blocks = preload("res://Scenes/MultiplayerNMainMenu/void.tscn")
 var start_block
 var void_block_start 
 

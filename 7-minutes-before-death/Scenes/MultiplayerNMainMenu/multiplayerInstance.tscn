@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d3of633nmkams"]
 
-[ext_resource type="Texture2D" uid="uid://bvdjyc4h84gcb" path="res://Assets/Tilemap/tilemap.png" id="1_8e0uw"]
-[ext_resource type="Script" uid="uid://b8bupbhexg4ng" path="res://Scripts/playerController.gd" id="1_a7iu2"]
-[ext_resource type="Script" uid="uid://jol6np7boab" path="res://Scripts/multiPInput.gd" id="2_er8v0"]
-[ext_resource type="Script" uid="uid://mrifu0j2uyek" path="res://Scripts/AnimationScripts/animateplayer.gd" id="4_0pknb"]
+[ext_resource type="Script" uid="uid://b8bupbhexg4ng" path="res://Scripts/playerController.gd" id="1_f751o"]
+[ext_resource type="Script" uid="uid://jol6np7boab" path="res://Scripts/Multiplayer/multiPInput.gd" id="2_v044u"]
+[ext_resource type="Texture2D" uid="uid://bvdjyc4h84gcb" path="res://Assets/Tilemap/tilemap.png" id="3_x8l1g"]
+[ext_resource type="Script" uid="uid://mrifu0j2uyek" path="res://Scripts/AnimationScripts/animateplayer.gd" id="4_5frxa"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_er8v0"]
 properties/0/path = NodePath(".:player_id")
@@ -22,7 +22,7 @@ properties/1/spawn = true
 properties/1/replication_mode = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a7iu2"]
-texture = ExtResource("1_8e0uw")
+texture = ExtResource("3_x8l1g")
 separation = Vector2i(1, 1)
 0:0/0 = 0
 1:0/0 = 0
@@ -165,8 +165,9 @@ radius = 15.235861
 height = 55.112118
 
 [node name="Player" type="CharacterBody2D" unique_id=1965378463]
+z_index = 100
 scale = Vector2(2, 2)
-script = ExtResource("1_a7iu2")
+script = ExtResource("1_f751o")
 
 [node name="PlayerSynchroniser" type="MultiplayerSynchronizer" parent="." unique_id=917504077]
 replication_config = SubResource("SceneReplicationConfig_er8v0")
@@ -174,13 +175,13 @@ replication_config = SubResource("SceneReplicationConfig_er8v0")
 [node name="InputSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1044057505]
 unique_name_in_owner = true
 replication_config = SubResource("SceneReplicationConfig_0pknb")
-script = ExtResource("2_er8v0")
+script = ExtResource("2_v044u")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=360671428]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 10, 0, 0, 0)
 tile_set = SubResource("TileSet_er8v0")
-script = ExtResource("4_0pknb")
+script = ExtResource("4_5frxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1074278217]
 position = Vector2(16, 18)

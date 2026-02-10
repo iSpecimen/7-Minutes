@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://rolguicunnxo"]
 
 [ext_resource type="Texture2D" uid="uid://eiw8ckbnrkox" path="res://icon.svg" id="1_acft5"]
-[ext_resource type="Script" uid="uid://22r3fvvuy5vb" path="res://Scripts/interactingobjecttest.gd" id="1_qo0f5"]
+[ext_resource type="Script" uid="uid://22r3fvvuy5vb" path="res://Scripts/JuliaInteractionStuff/interactingobjecttest.gd" id="1_qo0f5"]
 [ext_resource type="PackedScene" uid="uid://bbx8ofq8sn8wj" path="res://interactions/interaction area/interaction_area.tscn" id="2_fcrdi"]
-[ext_resource type="Script" uid="uid://ddei5jj8xd1cv" path="res://Scripts/movementtemp.gd" id="3_afr6h"]
+[ext_resource type="Script" uid="uid://ddei5jj8xd1cv" path="res://Scripts/JuliaInteractionStuff/movementtemp.gd" id="3_afr6h"]
 [ext_resource type="PackedScene" uid="uid://bskhxt6p0ya60" path="res://interactions/popUp.tscn" id="4_550gs"]
 [ext_resource type="PackedScene" uid="uid://cncvinsuwrbp6" path="res://interactions/InteractionManager.tscn" id="4_qo0f5"]
 [ext_resource type="PackedScene" uid="uid://da5i8oj85s0mv" path="res://interactions/interactable2.tscn" id="7_4cdtk"]

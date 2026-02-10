@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://iixbl05marhe"]
 
-[ext_resource type="PackedScene" uid="uid://bna0cgl67jtr" path="res://Scenes/corridor_block.tscn" id="1_dgmlq"]
+[ext_resource type="PackedScene" uid="uid://bna0cgl67jtr" path="res://Scenes/MultiplayerNMainMenu/corridor_block.tscn" id="1_dgmlq"]
+
 
 [node name="P1Lobby" type="Node2D" unique_id=1443757838]
 

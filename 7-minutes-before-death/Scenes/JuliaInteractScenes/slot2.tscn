@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cys1yhjxyvdrw"]
 
-[ext_resource type="Script" uid="uid://bp05650gg32gi" path="res://Scripts/slot_2.gd" id="1_2xxci"]
+[ext_resource type="Script" uid="uid://bp05650gg32gi" path="res://Scripts/JuliaInteractionStuff/slot_2.gd" id="1_2xxci"]
 
 [node name="Panel" type="Panel" unique_id=2058382125]
 light_mask = 3

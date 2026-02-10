@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cncvinsuwrbp6"]
 
-[ext_resource type="Script" uid="uid://dkmrhot7fbuuq" path="res://Scripts/interaction_manager.gd" id="1_u2e4y"]
+[ext_resource type="Script" uid="uid://dkmrhot7fbuuq" path="res://Scripts/JuliaInteractionStuff/interaction_manager.gd" id="1_u2e4y"]
+
 
 [node name="InteractionManager" type="Node2D" unique_id=1619851420]
 script = ExtResource("1_u2e4y")

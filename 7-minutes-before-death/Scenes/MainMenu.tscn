@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://cnw3vfch5p8gi" path="res://Scripts/AnimationScripts/doctor.gd" id="5_df05h"]
 [ext_resource type="Texture2D" uid="uid://ce8kqa3o0rfxk" path="res://Assets/templateassets/GA2.png" id="6_loo7a"]
 [ext_resource type="Script" uid="uid://1bgspcq08ya6" path="res://Scripts/AnimationScripts/GuardianP2.gd" id="7_loo7a"]
+[ext_resource type="PackedScene" uid="uid://bqwqe56jvwyb8" path="res://Scenes/interact_ui_test.tscn" id="11_awugs"]
+[ext_resource type="Script" uid="uid://l07lwxlp55st" path="res://Scripts/AtiInteractionStuff/interactable.gd" id="11_vv4ip"]
+[ext_resource type="Texture2D" uid="uid://q2gi2vcbvvi3" path="res://Assets/kenney_sketch-desert/Tiles/tree_N.png" id="12_awugs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xim88"]
 animations = [{
@@ -66,12 +69,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c7wuu"]
+radius = 15.0
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jq6c"]
+size = Vector2(78, 91)
+
 [node name="MainMenu" type="Node2D" unique_id=1085711166]
 script = ExtResource("1_tt5f1")
 
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
 
 [node name="Corridor" type="Node2D" parent="MainMenuCamera" unique_id=479213647]
+visible = false
 y_sort_enabled = true
 script = ExtResource("2_853f1")
 
@@ -166,6 +177,45 @@ layout_mode = 2
 text = "Join Game
 "
 
+[node name="Interactables" type="Node2D" parent="MainMenuCamera" unique_id=1049329363]
+z_index = 101
+y_sort_enabled = true
+position = Vector2(311, -188)
+
+[node name="InteractObject" type="StaticBody2D" parent="MainMenuCamera/Interactables" unique_id=2037417954]
+script = ExtResource("11_vv4ip")
+ui_scene = ExtResource("11_awugs")
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenuCamera/Interactables/InteractObject" unique_id=2052596960]
+position = Vector2(-8, 41)
+scale = Vector2(0.4929303, 0.4929303)
+texture = ExtResource("12_awugs")
+
+[node name="CollisionHitBox" type="CollisionShape2D" parent="MainMenuCamera/Interactables/InteractObject" unique_id=1145148362]
+position = Vector2(-12.999939, 73)
+shape = SubResource("CapsuleShape2D_c7wuu")
+
+[node name="Area2D" type="Area2D" parent="MainMenuCamera/Interactables/InteractObject" unique_id=774640699]
+position = Vector2(-15, 73)
+collision_layer = 4
+
+[node name="InteractionRange" type="CollisionShape2D" parent="MainMenuCamera/Interactables/InteractObject/Area2D" unique_id=1152981872]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_2jq6c")
+debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
+
+[node name="InteractUITest" parent="MainMenuCamera/Interactables/InteractObject" unique_id=21531859 instance=ExtResource("11_awugs")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -221.0
+offset_top = -35.0
+offset_right = -221.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1530712542]
 _spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
 spawn_path = NodePath("../Players")
@@ -175,3 +225,5 @@ z_index = 100
 
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]
+[connection signal="body_entered" from="MainMenuCamera/Interactables/InteractObject/Area2D" to="MainMenuCamera/Interactables/InteractObject" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="MainMenuCamera/Interactables/InteractObject/Area2D" to="MainMenuCamera/Interactables/InteractObject" method="_on_area_2d_body_exited"]

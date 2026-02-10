@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bqwqe56jvwyb8"]
+
+[ext_resource type="Script" uid="uid://bqc0n35vfwbbb" path="res://Scripts/AtiInteractionStuff/interact_ui.gd" id="1_mhnuu"]
+
+[node name="InteractUITest" type="Control" unique_id=21531859]
+z_index = 102
+layout_mode = 3
+anchors_preset = 0
+offset_right = 705.0
+offset_bottom = 380.0
+script = ExtResource("1_mhnuu")
+
+[node name="Panel" type="Panel" parent="." unique_id=1795360972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=780670099]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

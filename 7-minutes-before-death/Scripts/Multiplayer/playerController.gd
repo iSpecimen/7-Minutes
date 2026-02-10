@@ -10,6 +10,7 @@ var x_direction
 	set(id):
 		player_id = id
 		%InputSynchronizer.set_multiplayer_authority(id)
+		add_to_group("player")
 
 func _apply_animation(delta):
 	return

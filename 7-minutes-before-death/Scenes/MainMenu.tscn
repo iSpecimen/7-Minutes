@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://b5gr4odnlepl2"]
+[gd_scene format=4 uid="uid://c3ml66tba7jyw"]
 
 [ext_resource type="Script" uid="uid://dudy12clsa3st" path="res://Scripts/gameController.gd" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://b6et81wb6ve16" path="res://Scenes/gameCamera.gd" id="2_72gy5"]
 [ext_resource type="Script" uid="uid://c4ybvudmv46xy" path="res://Scripts/AnimationScripts/corridor.gd" id="2_853f1"]
 [ext_resource type="Texture2D" uid="uid://d24sestwwo6d2" path="res://Assets/templateassets/gurney.png" id="3_8um5k"]
 [ext_resource type="Texture2D" uid="uid://d2jdvu17oykkj" path="res://Assets/templateassets/doctor.png" id="3_ghw46"]
@@ -13,6 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://bqwqe56jvwyb8" path="res://Scenes/interact_ui_test.tscn" id="11_awugs"]
 [ext_resource type="Script" uid="uid://l07lwxlp55st" path="res://Scripts/AtiInteractionStuff/interactable.gd" id="11_vv4ip"]
 [ext_resource type="Texture2D" uid="uid://q2gi2vcbvvi3" path="res://Assets/kenney_sketch-desert/Tiles/tree_N.png" id="12_awugs"]
+[ext_resource type="PackedScene" uid="uid://bna0cgl67jtr" path="res://Scenes/corridor_block.tscn" id="14_2jq6c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c7wuu"]
+radius = 15.0
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jq6c"]
+size = Vector2(78, 91)
 
 [sub_resource type="LabelSettings" id="LabelSettings_awugs"]
 font_size = 32
@@ -72,17 +81,93 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c7wuu"]
-radius = 15.0
-height = 64.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jq6c"]
-size = Vector2(78, 91)
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_c7wuu"]
+properties/0/path = NodePath("/root/Game:allplayersconnected")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Game" type="Node2D" unique_id=1085711166]
 script = ExtResource("1_tt5f1")
 
+[node name="Map" type="Node2D" parent="." unique_id=841442765]
+
+[node name="P1Lobby" type="Node2D" parent="Map" unique_id=1436873318]
+scale = Vector2(0.5, 0.5)
+
+[node name="Lobby" parent="Map/P1Lobby" unique_id=891766374 instance=ExtResource("14_2jq6c")]
+z_index = 9
+position = Vector2(3714, -1856)
+scale = Vector2(1, 1)
+tile_map_data = PackedByteArray("AAD+/wIABgAAAAAAAAD+/wMABgAAAAAAAAD9/wMAAwAAAAMAAAD9/wQAAwAAAAMAAAD+/wQAAwAAAAMAAAD//wQABgAAAAAAAAD8/wUAAwAAAAMAAAD8/wYAAwAAAAMAAAD9/wUAAwAAAAMAAAD9/wYAAwAAAAMAAAD+/wUAAwAAAAMAAAD+/wYAAwAAAAMAAAD7/wgAAwAAAAMAAAD7/wkAAwAAAAMAAAD8/wgAAwAAAAMAAAD8/wkAAwAAAAMAAAD7/wcAAwAAAAMAAAD8/wcAAwAAAAMAAAD9/wcAAwAAAAMAAAD9/wgAAwAAAAMAAAD8/woAAwAAAAMAAAD6/wkAAwAAAAMAAAD6/woAAwAAAAMAAAD6/wsAAwAAAAMAAAD7/woAAwAAAAMAAAD7/wsAAwAAAAMAAAD7/wwAAwAAAAMAAAD5/wkAAwAAAAMAAAD6/wcAAwAAAAMAAAD6/wgAAwAAAAMAAAD7/wYAAwAAAAMAAAD7/wUAAwAAAAMAAAD8/wQAAwAAAAMAAAD8/wMAAwAAAAMAAAD9/wIAAwAAAAMAAAD9/wEABgAAAAAAAAD5/wgAAwAAAAMAAAD7/w0AAwAAAAMAAAD8/w4AAwAAAAMAAAD5/wcAAwAAAAMAAAD8/wwAAwAAAAMAAAD8/w0AAwAAAAMAAAD6/wYAAwAAAAMAAAD8/wsAAwAAAAMAAAD9/wwAAwAAAAMAAAD5/wUAAwAAAAMAAAD5/wYAAwAAAAMAAAD4/wcAAwAAAAMAAAD6/wQAAwAAAAMAAAD6/wUAAwAAAAMAAAD9/wkAAwAAAAMAAAD9/woAAwAAAAMAAAD9/wsAAwAAAAMAAAD6/wMAAwAAAAMAAAD7/wQAAwAAAAMAAAD+/woAAwAAAAMAAAD+/wkAAwAAAAMAAAD+/wgAAwAAAAMAAAD7/wMAAwAAAAMAAAD7/wIAAwAAAAMAAAD7/wEAAwAAAAMAAAD8/wAAAwAAAAMAAAD8/wEAAwAAAAMAAAD+/wcAAwAAAAMAAAD//wYAAwAAAAMAAAD//wgAAwAAAAMAAAD//wcAAwAAAAMAAAD8/wIAAwAAAAMAAAD4/wYABQAAAAAAAAD4/wUABQAAAAAAAAD5/wQABQAAAAAAAAD5/wMABQAAAAAAAAD6/wIABQAAAAAAAAD6/wEABQAAAAAAAAD7/wAABQAAAAAAAAD7////BQAAAAAAAAD8////BgAAAAAAAAD9/wAABgAAAAAAAAD//wUABgAAAAAAAAAAAAYABgAAAAAAAAAAAAcABgAAAAAAAAD8/w8AAwAAAAMAAAD9/w4AAwAAAAMAAAD9/w0AAwAAAAMAAAD+/wwAAwAAAAMAAAD+/wsAAwAAAAMAAAD//woAAwAAAAMAAAD//wkAAwAAAAMAAAAAAAgAAwAAAAMAAAA=")
+script = null
+
+[node name="BottomWallRight" parent="Map/P1Lobby" unique_id=82911060 instance=ExtResource("14_2jq6c")]
+position = Vector2(3844, -1792)
+scale = Vector2(1, 1)
+tile_map_data = PackedByteArray("AAD8/w4ABQAAAAAAAAD8/w0ABQAAAAAAAAD9/wwABQAAAAAAAAD9/wsABQAAAAAAAAD+/woABQAAAAAAAAD+/wkABQAAAAAAAAD//wgABQAAAAAAAAD//wcABQAAAAAAAAA=")
+script = null
+
+[node name="BottomWallLeft" parent="Map/P1Lobby" unique_id=990258885 instance=ExtResource("14_2jq6c")]
+position = Vector2(3714, -1856)
+scale = Vector2(1, 1)
+tile_map_data = PackedByteArray("AAD6/woABgAAAAAAAAD7/wwABgAAAAAAAAD5/wkABgAAAAAAAAD5/wgABgAAAAAAAAD7/w0ABgAAAAAAAAD8/w4ABgAAAAAAAAD4/wcABgAAAAAAAAD8/w8ABgAAAAAAAAA=")
+script = null
+
+[node name="CorridorBlock" parent="Map/P1Lobby" unique_id=1759295797 instance=ExtResource("14_2jq6c")]
+position = Vector2(898, -448)
+scale = Vector2(1, 1)
+script = null
+
+[node name="CorridorBlock2" parent="Map/P1Lobby" unique_id=717100803 instance=ExtResource("14_2jq6c")]
+position = Vector2(-1918, 960)
+scale = Vector2(1, 1)
+script = null
+
+[node name="Corridor" type="Node2D" parent="Map" unique_id=479213647]
+y_sort_enabled = true
+script = ExtResource("2_853f1")
+
+[node name="Interactables" type="Node2D" parent="Map" unique_id=1049329363]
+z_index = 101
+y_sort_enabled = true
+position = Vector2(1406, -706)
+
+[node name="InteractObject" type="StaticBody2D" parent="Map/Interactables" unique_id=2037417954]
+position = Vector2(20, -305)
+script = ExtResource("11_vv4ip")
+ui_scene = ExtResource("11_awugs")
+
+[node name="InteractLabel" parent="Map/Interactables/InteractObject" unique_id=21531859 instance=ExtResource("11_awugs")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = 19.0
+offset_right = -82.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Interactables/InteractObject" unique_id=2052596960]
+position = Vector2(-8, 41)
+scale = Vector2(0.4929303, 0.4929303)
+texture = ExtResource("12_awugs")
+
+[node name="CollisionHitBox" type="CollisionShape2D" parent="Map/Interactables/InteractObject" unique_id=1145148362]
+position = Vector2(-12.999939, 73)
+shape = SubResource("CapsuleShape2D_c7wuu")
+
+[node name="Area2D" type="Area2D" parent="Map/Interactables/InteractObject" unique_id=774640699]
+position = Vector2(-15, 73)
+collision_layer = 4
+
+[node name="InteractionRange" type="CollisionShape2D" parent="Map/Interactables/InteractObject/Area2D" unique_id=1152981872]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_2jq6c")
+debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
+
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
+script = ExtResource("2_72gy5")
 
 [node name="PopUpUI" type="Control" parent="MainMenuCamera" unique_id=1295420185]
 visible = false
@@ -113,10 +198,6 @@ offset_bottom = 23.0
 text = "WOAAHHH POP UP WOOAAHH
 "
 label_settings = SubResource("LabelSettings_awugs")
-
-[node name="Corridor" type="Node2D" parent="MainMenuCamera" unique_id=479213647]
-y_sort_enabled = true
-script = ExtResource("2_853f1")
 
 [node name="Sprites" type="Node2D" parent="MainMenuCamera" unique_id=486962340]
 z_index = 15
@@ -209,54 +290,17 @@ layout_mode = 2
 text = "Join Game
 "
 
-[node name="Interactables" type="Node2D" parent="MainMenuCamera" unique_id=1049329363]
-visible = false
-z_index = 101
-y_sort_enabled = true
-position = Vector2(311, -188)
-
-[node name="InteractObject" type="StaticBody2D" parent="MainMenuCamera/Interactables" unique_id=2037417954]
-script = ExtResource("11_vv4ip")
-ui_scene = ExtResource("11_awugs")
-
-[node name="InteractLabel" parent="MainMenuCamera/Interactables/InteractObject" unique_id=21531859 instance=ExtResource("11_awugs")]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -82.0
-offset_top = 19.0
-offset_right = -82.0
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="MainMenuCamera/Interactables/InteractObject" unique_id=2052596960]
-position = Vector2(-8, 41)
-scale = Vector2(0.4929303, 0.4929303)
-texture = ExtResource("12_awugs")
-
-[node name="CollisionHitBox" type="CollisionShape2D" parent="MainMenuCamera/Interactables/InteractObject" unique_id=1145148362]
-position = Vector2(-12.999939, 73)
-shape = SubResource("CapsuleShape2D_c7wuu")
-
-[node name="Area2D" type="Area2D" parent="MainMenuCamera/Interactables/InteractObject" unique_id=774640699]
-position = Vector2(-15, 73)
-collision_layer = 4
-
-[node name="InteractionRange" type="CollisionShape2D" parent="MainMenuCamera/Interactables/InteractObject/Area2D" unique_id=1152981872]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_2jq6c")
-debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
-
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1530712542]
 _spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
 spawn_path = NodePath("../Players")
 
+[node name="Synchroniser" type="MultiplayerSynchronizer" parent="." unique_id=1569656996]
+replication_config = SubResource("SceneReplicationConfig_c7wuu")
+
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
 z_index = 100
 
+[connection signal="body_entered" from="Map/Interactables/InteractObject/Area2D" to="Map/Interactables/InteractObject" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Map/Interactables/InteractObject/Area2D" to="Map/Interactables/InteractObject" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]
-[connection signal="body_entered" from="MainMenuCamera/Interactables/InteractObject/Area2D" to="MainMenuCamera/Interactables/InteractObject" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="MainMenuCamera/Interactables/InteractObject/Area2D" to="MainMenuCamera/Interactables/InteractObject" method="_on_area_2d_body_exited"]

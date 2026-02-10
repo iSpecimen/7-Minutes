@@ -6,7 +6,7 @@ const SERVER_IP = "127.0.0.1"
 var multiplayer_scene = preload("res://Scenes/multiplayerInstance.tscn")
 
 var _players_spawn_node
-var spawn_point = 0
+var spawn_point = [Vector2(-62,42), Vector2(20,-10)]
 
 func becomeHost():
 	print("Hosting..")
@@ -35,16 +35,19 @@ func joinHostGame():
 
 func _add_player_to_game(id: int):
 	print("Player %s joined the game!" % id)
-	if id == 1:
-		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/Gurney/GurneyP1").frame = 1
-	else:
-		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/GuardianP2/guaP2").show()
 	var targetPlayer = multiplayer_scene.instantiate()
 	targetPlayer.player_id = id
 	targetPlayer.name = str(id)
-	targetPlayer.global_position = Vector2(spawn_point, 0)
+	if id == 1:
+		targetPlayer.global_position = spawn_point[1]
+		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/Gurney/GurneyP1").frame = 1
+	else:
+		targetPlayer.global_position = spawn_point[0]
+		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/GuardianP2/guaP2").show()
+		print("All Players have joined.")
+		$/root/Game.allplayersconnected = true
+	
 	_players_spawn_node.add_child(targetPlayer, true)
-	spawn_point+= 50
 	
 func _del_player(id: int):
 	print("Player %s left the game!" % id)

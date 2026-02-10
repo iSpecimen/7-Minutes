@@ -4,6 +4,8 @@ var blocks = 0
 var voidblocks = 0
 var corridor_block = preload("res://Scenes/corridor_block.tscn")
 var void_blocks = preload("res://Scenes/void.tscn")
+var P1_Lobby = preload("res://Scenes/p1Lobby.tscn")
+var p1level 
 var start_block
 var void_block_start 
 
@@ -25,6 +27,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if blocks < 2:
+		if $/root/Game.allplayersconnected:
+			p1level = P1_Lobby.instantiate()
+			start_block.global_position = Vector2(64,-32)*19
+			$/root/Game/Map/P1Lobby.show()
+			blocks = 1000 # Stop spawning new blocks.
+			print("Players are Connected and lobby is ready to move.")
+			$/root/Game/MainMenuCamera.targetP = get_multiplayer_authority()
+			$/root/Game.cutscene1()
+			return
+		
 		start_block = corridor_block.instantiate()
 		start_block.name = "Corridor" + str(blocks)
 		start_block.global_position = Vector2(64,-32)*20

@@ -12,6 +12,10 @@ var x_direction
 		%InputSynchronizer.set_multiplayer_authority(id)
 		add_to_group("player")
 
+func _ready():
+	#self.hide()
+	pass
+	
 func _apply_animation(delta):
 	return
 

@@ -13,9 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://ce8kqa3o0rfxk" path="res://Assets/templateassets/GA2.png" id="6_loo7a"]
 [ext_resource type="Script" uid="uid://1bgspcq08ya6" path="res://Scripts/AnimationScripts/GuardianP2.gd" id="7_loo7a"]
 [ext_resource type="PackedScene" uid="uid://bqwqe56jvwyb8" path="res://Scenes/interact_ui_test.tscn" id="11_awugs"]
-[ext_resource type="Script" uid="uid://l07lwxlp55st" path="res://Scripts/AtiInteractionStuff/interactable.gd" id="11_vv4ip"]
+[ext_resource type="Script" uid="uid://l07lwxlp55st" path="res://Scripts/AtiInteractionStuff/PlantBitch.gd" id="11_vv4ip"]
 [ext_resource type="Texture2D" uid="uid://q2gi2vcbvvi3" path="res://Assets/kenney_sketch-desert/Tiles/tree_N.png" id="12_awugs"]
 [ext_resource type="PackedScene" uid="uid://bna0cgl67jtr" path="res://Scenes/corridor_block.tscn" id="14_2jq6c"]
+[ext_resource type="Texture2D" uid="uid://bp0s20euojoho" path="res://Assets/kenney_isometric-miniature-prototype/Characters/Human/Human_0_Run0.png" id="16_8wkh3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xim88"]
 animations = [{
@@ -94,6 +95,9 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:visible")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8um5k"]
 animations = [{
@@ -148,7 +152,7 @@ libraries/ = SubResource("AnimationLibrary_72gy5")
 [node name="GuardianP2" type="Node2D" parent="Sprites" unique_id=543062409]
 
 [node name="guaP2" type="AnimatedSprite2D" parent="Sprites/GuardianP2" unique_id=877741442]
-position = Vector2(-103, 43)
+position = Vector2(42, 23)
 sprite_frames = SubResource("SpriteFrames_if7li")
 script = ExtResource("7_loo7a")
 
@@ -222,17 +226,18 @@ script = null
 y_sort_enabled = true
 script = ExtResource("2_853f1")
 
-[node name="Interactables" type="Node2D" parent="Map" unique_id=1049329363]
+[node name="InteractablesP1" type="Node2D" parent="Map" unique_id=1049329363]
 z_index = 101
 y_sort_enabled = true
 position = Vector2(1406, -706)
 
-[node name="InteractObject" type="StaticBody2D" parent="Map/Interactables" unique_id=2037417954]
+[node name="PlantBitch" type="StaticBody2D" parent="Map/InteractablesP1" unique_id=2037417954]
 position = Vector2(20, -305)
 script = ExtResource("11_vv4ip")
 ui_scene = ExtResource("11_awugs")
 
-[node name="InteractLabel" parent="Map/Interactables/InteractObject" unique_id=21531859 instance=ExtResource("11_awugs")]
+[node name="InteractLabel" parent="Map/InteractablesP1/PlantBitch" unique_id=21531859 instance=ExtResource("11_awugs")]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -243,20 +248,58 @@ offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Map/Interactables/InteractObject" unique_id=2052596960]
+[node name="Sprite2D" type="Sprite2D" parent="Map/InteractablesP1/PlantBitch" unique_id=2052596960]
 position = Vector2(-8, 41)
 scale = Vector2(0.4929303, 0.4929303)
 texture = ExtResource("12_awugs")
 
-[node name="CollisionHitBox" type="CollisionShape2D" parent="Map/Interactables/InteractObject" unique_id=1145148362]
+[node name="CollisionHitBox" type="CollisionShape2D" parent="Map/InteractablesP1/PlantBitch" unique_id=1145148362]
 position = Vector2(-12.999939, 73)
 shape = SubResource("CapsuleShape2D_c7wuu")
 
-[node name="Area2D" type="Area2D" parent="Map/Interactables/InteractObject" unique_id=774640699]
+[node name="Area2D" type="Area2D" parent="Map/InteractablesP1/PlantBitch" unique_id=774640699]
 position = Vector2(-15, 73)
 collision_layer = 4
 
-[node name="InteractionRange" type="CollisionShape2D" parent="Map/Interactables/InteractObject/Area2D" unique_id=1152981872]
+[node name="InteractionRange" type="CollisionShape2D" parent="Map/InteractablesP1/PlantBitch/Area2D" unique_id=1152981872]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_2jq6c")
+debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
+
+[node name="InteractablesP2" type="Node2D" parent="Map" unique_id=1376358550]
+z_index = 101
+y_sort_enabled = true
+position = Vector2(1406, -706)
+
+[node name="Boardxd" type="StaticBody2D" parent="Map/InteractablesP2" unique_id=1118878982]
+position = Vector2(-516, 147)
+
+[node name="InteractLabel" parent="Map/InteractablesP2/Boardxd" unique_id=2112510270 instance=ExtResource("11_awugs")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = 19.0
+offset_right = -82.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/InteractablesP2/Boardxd" unique_id=875759258]
+position = Vector2(-14, 6)
+scale = Vector2(0.4929303, 0.4929303)
+texture = ExtResource("16_8wkh3")
+
+[node name="CollisionHitBox" type="CollisionShape2D" parent="Map/InteractablesP2/Boardxd" unique_id=548872809]
+position = Vector2(-12.999939, 73)
+shape = SubResource("CapsuleShape2D_c7wuu")
+
+[node name="Area2D" type="Area2D" parent="Map/InteractablesP2/Boardxd" unique_id=762099002]
+position = Vector2(-15, 73)
+collision_layer = 4
+
+[node name="InteractionRange" type="CollisionShape2D" parent="Map/InteractablesP2/Boardxd/Area2D" unique_id=1781892513]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_2jq6c")
 debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
@@ -264,8 +307,9 @@ debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
 script = ExtResource("2_72gy5")
 
-[node name="PopUpUI" type="Control" parent="MainMenuCamera" unique_id=1295420185]
+[node name="PlantBitchUI" type="Control" parent="MainMenuCamera" unique_id=1295420185]
 visible = false
+z_index = 500
 layout_mode = 3
 anchors_preset = 0
 offset_left = -572.0
@@ -274,7 +318,7 @@ offset_right = -328.0
 offset_bottom = -293.0
 scale = Vector2(1.8992958, 9.904945)
 
-[node name="Panel" type="Panel" parent="MainMenuCamera/PopUpUI" unique_id=407877368]
+[node name="Panel" type="Panel" parent="MainMenuCamera/PlantBitchUI" unique_id=407877368]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,11 +330,12 @@ offset_bottom = 0.60575867
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MainMenuCamera/PopUpUI/Panel" unique_id=192661766]
+[node name="Label" type="Label" parent="MainMenuCamera/PlantBitchUI/Panel" unique_id=192661766]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "WOAAHHH POP UP WOOAAHH
+HELP ME IM A PLANT
 "
 label_settings = SubResource("LabelSettings_awugs")
 
@@ -346,7 +391,9 @@ replication_config = SubResource("SceneReplicationConfig_c7wuu")
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
 z_index = 100
 
-[connection signal="body_entered" from="Map/Interactables/InteractObject/Area2D" to="Map/Interactables/InteractObject" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Map/Interactables/InteractObject/Area2D" to="Map/Interactables/InteractObject" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Map/InteractablesP1/PlantBitch/Area2D" to="Map/InteractablesP1/PlantBitch" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Map/InteractablesP1/PlantBitch/Area2D" to="Map/InteractablesP1/PlantBitch" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Map/InteractablesP2/Boardxd/Area2D" to="Map/InteractablesP2/Boardxd" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Map/InteractablesP2/Boardxd/Area2D" to="Map/InteractablesP2/Boardxd" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

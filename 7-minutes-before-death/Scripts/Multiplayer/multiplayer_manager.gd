@@ -49,6 +49,7 @@ func _add_player_to_game(id: int):
 	
 	_players_spawn_node.add_child(targetPlayer, true)
 	
+	
 func _del_player(id: int):
 	print("Player %s left the game!" % id)
 	if not _players_spawn_node.has_node(str(id)):

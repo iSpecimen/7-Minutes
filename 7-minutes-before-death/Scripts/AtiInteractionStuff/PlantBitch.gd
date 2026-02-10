@@ -10,18 +10,20 @@ func _ready():
 
 func _input(event):
 	if player_in_range and event.is_action_pressed("interact"):
-		
 		toggle_ui()
+		
 
 func toggle_ui():
 	if $/root/Game.popUpOpen:
 		$/root/Game.popUpOpen = false
 		print("Toggle UI Off")
-		$/root/Game/MainMenuCamera/PopUpUI.hide()
+		$/root/Game/MainMenuCamera/PlantBitchUI.hide()
+		$InteractLabel.hide()
 	else:
 		$/root/Game.popUpOpen = true
 		print("Toggle UI On")
-		$/root/Game/MainMenuCamera/PopUpUI.show()
+		$/root/Game/MainMenuCamera/PlantBitchUI.show()
+		$InteractLabel.show()
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -38,4 +40,4 @@ func _on_area_2d_body_exited(body):
 		if $/root/Game.popUpOpen:
 			$/root/Game.popUpOpen = false
 			print("Left Popup Area")
-			$/root/Game/MainMenuCamera/PopUpUI.hide()
+			$/root/Game/MainMenuCamera/PlantBitchUI.hide()

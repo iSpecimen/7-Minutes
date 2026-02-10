@@ -31,4 +31,5 @@ func cutscene1():
 	$Map/Corridor.queue_free()
 	await get_tree().create_timer(7.0).timeout
 	gameReady = true
+	$"Players/1".show()
 	

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="7 Minutes Before Death"
-run/main_scene="uid://b5gr4odnlepl2"
+run/main_scene="uid://c3ml66tba7jyw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

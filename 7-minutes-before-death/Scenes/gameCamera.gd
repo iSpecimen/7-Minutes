@@ -8,10 +8,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if targetP:
-		self.global_position = get_node("/root/Game/Players/" + str(targetP)).global_position
+	if get_multiplayer_authority() != multiplayer.get_unique_id():
+		if targetP:
+			self.global_position = get_node("/root/Game/Players/" + str(targetP)).global_position
+			
+			
+			
+			
+	elif targetP:
+		self.global_position = get_node("/root/Game/Players/1").global_position
 	pass
 
-
+func focusCamera() -> void:
+	targetP = multiplayer.get_unique_id()
+	print("Set Target to %s" % str(targetP))
 
 	

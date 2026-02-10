@@ -1,4 +1,4 @@
-extends TileMapLayer
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,9 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !$/root/Game.gameReady:
-		self.global_position += Vector2(-64, 32)*0.0002
-		if self.global_position.x < -1280:
-			self.queue_free()
-			$"..".voidblocks+= -1
+	#if $/root/Game.allplayers
 	pass

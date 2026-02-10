@@ -26,4 +26,9 @@ func joinHostGame():
 func cutscene1():
 	print("Starting First Cutscene for P1")
 	get_node("/root/Game/Players/1/Cutscenes").play("Cutscene1")
+	$Sprites/Doctors/Cutscenes.play("Cutscene1")
+	$Sprites/Gurney/Cutscenes.play("Cutscene1")
+	$Map/Corridor.queue_free()
+	await get_tree().create_timer(7.0).timeout
+	gameReady = true
 	

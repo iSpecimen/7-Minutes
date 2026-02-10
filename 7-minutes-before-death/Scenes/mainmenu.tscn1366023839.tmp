@@ -36,43 +36,6 @@ properties/0/path = NodePath(".:frame")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[sub_resource type="Animation" id="Animation_0pknb"]
-resource_name = "Cutscene1"
-length = 8.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 6.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1407, -704)]
-}
-
-[sub_resource type="Animation" id="Animation_bo24s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_72gy5"]
-_data = {
-&"Cutscene1": SubResource("Animation_0pknb"),
-&"RESET": SubResource("Animation_bo24s")
-}
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_if7li"]
 animations = [{
 "frames": [{
@@ -132,6 +95,7 @@ z_index = 15
 script = ExtResource("2_8wkh3")
 
 [node name="Gurney" type="Node2D" parent="Sprites" unique_id=629475395]
+position = Vector2(-62, 42)
 scale = Vector2(1.5, 1.5)
 
 [node name="GurneyP1" type="AnimatedSprite2D" parent="Sprites/Gurney" unique_id=278456164]
@@ -141,9 +105,6 @@ sprite_frames = SubResource("SpriteFrames_xim88")
 
 [node name="P1Sync" type="MultiplayerSynchronizer" parent="Sprites/Gurney/GurneyP1" unique_id=673978986]
 replication_config = SubResource("SceneReplicationConfig_xim88")
-
-[node name="Cutscenes" type="AnimationPlayer" parent="Sprites/Gurney" unique_id=2104473728]
-libraries/ = SubResource("AnimationLibrary_72gy5")
 
 [node name="GuardianP2" type="Node2D" parent="Sprites" unique_id=543062409]
 
@@ -156,6 +117,7 @@ script = ExtResource("7_loo7a")
 replication_config = SubResource("SceneReplicationConfig_loo7a")
 
 [node name="Doctors" type="Node2D" parent="Sprites" unique_id=1418592837]
+position = Vector2(-62, 42)
 scale = Vector2(3, 3)
 
 [node name="Doctor" type="AnimatedSprite2D" parent="Sprites/Doctors" unique_id=1448016335]
@@ -179,9 +141,6 @@ script = ExtResource("5_df05h")
 position = Vector2(10.666666, -12)
 sprite_frames = SubResource("SpriteFrames_8um5k")
 script = ExtResource("5_df05h")
-
-[node name="Cutscenes" type="AnimationPlayer" parent="Sprites/Doctors" unique_id=1529491888]
-libraries/ = SubResource("AnimationLibrary_72gy5")
 
 [node name="Map" type="Node2D" parent="." unique_id=841442765]
 
@@ -210,7 +169,6 @@ script = null
 [node name="CorridorBlock" parent="Map/P1Lobby" unique_id=1759295797 instance=ExtResource("14_2jq6c")]
 position = Vector2(898, -448)
 scale = Vector2(1, 1)
-tile_map_data = PackedByteArray("AAAAAP//AwAAAAMAAAAAAP7/AwAAAAMAAAABAAAAAwAAAAMAAAD/////AwAAAAMAAAAAAAAAAwAAAAMAAAAAAAEAAwAAAAMAAAAAAP3/AwAAAAMAAAABAP3/AwAAAAMAAAABAP7/AwAAAAMAAAABAP//AwAAAAMAAAACAP3/AwAAAAMAAAACAP7/AwAAAAMAAAABAPv/AwAAAAMAAAACAPv/AwAAAAMAAAABAPz/AwAAAAMAAAACAPz/AwAAAAMAAAACAPr/AwAAAAMAAAADAPr/AwAAAAMAAAADAPv/AwAAAAMAAAADAPz/AwAAAAMAAAACAPn/AwAAAAMAAAADAPn/AwAAAAMAAAADAPj/AwAAAAMAAAAEAPj/AwAAAAMAAAAEAPn/AwAAAAMAAAAEAPr/AwAAAAMAAAADAPf/AwAAAAMAAAAEAPf/AwAAAAMAAAAEAPb/AwAAAAMAAAAFAPb/AwAAAAMAAAAFAPf/AwAAAAMAAAAFAPj/AwAAAAMAAAAEAPX/AwAAAAMAAAD//wAAAwAAAAMAAAAAAAIAAwAAAAMAAAD//wEAAwAAAAMAAAD+/wEAAwAAAAMAAAD+/wIAAwAAAAMAAAD//wIAAwAAAAMAAAD+/wMAAwAAAAMAAAD//wMAAwAAAAMAAAD9/wMAAwAAAAMAAAD9/wQAAwAAAAMAAAD+/wQAAwAAAAMAAAD//wQAAwAAAAMAAAD8/wUAAwAAAAMAAAD8/wYAAwAAAAMAAAD9/wUAAwAAAAMAAAD9/wYAAwAAAAMAAAD+/wUAAwAAAAMAAAD+/wYAAwAAAAMAAAD7/wgAAwAAAAMAAAD7/wkAAwAAAAMAAAD8/wgAAwAAAAMAAAD8/wkAAwAAAAMAAAD7/wcAAwAAAAMAAAD8/wcAAwAAAAMAAAD9/wcAAwAAAAMAAAD9/wgAAwAAAAMAAAD8/woAAwAAAAMAAAD6/wkAAwAAAAMAAAD6/woAAwAAAAMAAAD6/wsAAwAAAAMAAAD7/woAAwAAAAMAAAD7/wsAAwAAAAMAAAD7/wwAAwAAAAMAAAD5/wkABQAAAAAAAAD6/wcABQAAAAAAAAD6/wgABQAAAAAAAAD7/wYABQAAAAAAAAD7/wUABQAAAAAAAAD8/wQABQAAAAAAAAD8/wMABQAAAAAAAAD9/wIABQAAAAAAAAD9/wEABQAAAAAAAAD+/wAABQAAAAAAAAD+////BQAAAAAAAAD///7/BQAAAAAAAAD///3/BQAAAAAAAAAAAPz/BQAAAAAAAAAAAPv/BQAAAAAAAAABAPr/BQAAAAAAAAABAPn/BQAAAAAAAAACAPj/BQAAAAAAAAACAPf/BQAAAAAAAAADAPb/BQAAAAAAAAADAPX/BQAAAAAAAAAEAPT/BQAAAAAAAAAGAPj/AwAAAAAAAAAFAPn/AwAAAAAAAAAFAPr/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPz/AwAAAAAAAAADAP3/AwAAAAAAAAADAP7/AwAAAAAAAAACAP//AwAAAAAAAAACAAAAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAAQAAwAAAAAAAAD//wUAAwAAAAAAAAD//wYAAwAAAAAAAAD+/wcAAwAAAAAAAAD+/wgAAwAAAAAAAAD9/wkAAwAAAAAAAAD9/woAAwAAAAAAAAD8/wsAAwAAAAAAAAD8/wwAAwAAAAAAAAD7/w0AAwAAAAAAAAD7/w4AAwAAAAAAAAD6/w8AAwAAAAAAAAD6/xAAAwAAAAAAAAD5/xEAAwAAAAAAAAD5/xAAAwAAAAAAAAD4/w8AAwAAAAAAAAD4/w4AAwAAAAAAAAD3/w0AAwAAAAAAAAD3/wwAAwAAAAAAAAD3/wsAAwAAAAAAAAD4/woAAwAAAAAAAAD4/wkAAwAAAAAAAAD5/wgAAwAAAAAAAAD5/wcAAwAAAAAAAAD6/wYAAwAAAAAAAAD5/wUAAwAAAAAAAAD6/wQAAwAAAAAAAAD6/wUAAwAAAAAAAAD7/wQAAwAAAAAAAAD7/wMAAwAAAAAAAAD8/wIAAwAAAAAAAAD8/wEAAwAAAAAAAAD9/wAAAwAAAAAAAAD9////AwAAAAAAAAD+//7/AwAAAAAAAAD+//3/AwAAAAAAAAD///z/AwAAAAAAAAD///v/AwAAAAAAAAAAAPr/AwAAAAAAAAAAAPn/AwAAAAAAAAABAPj/AwAAAAAAAAABAPf/AwAAAAAAAAACAPb/AwAAAAAAAAACAPX/AwAAAAAAAAADAPT/AwAAAAAAAAADAPP/AwAAAAAAAAADAPL/AwAAAAAAAAACAPH/AwAAAAAAAAADAPD/AwAAAAAAAAADAO//AwAAAAAAAAAEAO7/AwAAAAAAAAAEAO3/AwAAAAAAAAAFAOz/AwAAAAAAAAAFAOv/AwAAAAAAAAAGAOr/AwAAAAAAAAAGAOn/AwAAAAAAAAAHAOj/AwAAAAAAAAAHAOn/AwAAAAAAAAAIAOr/AwAAAAAAAAAIAOv/AwAAAAAAAAAJAOz/AwAAAAAAAAAJAO3/AwAAAAAAAAAKAO7/AwAAAAAAAAAKAO//AwAAAAAAAAALAPD/AwAAAAAAAAALAPH/AwAAAAAAAAAMAPL/AwAAAAAAAAALAPP/AwAAAAAAAAALAPT/AwAAAAAAAAAKAPX/AwAAAAAAAAAKAPb/AwAAAAAAAAAJAPf/AwAAAAAAAAAJAPj/AwAAAAAAAAAIAPn/AwAAAAAAAAAIAPr/AwAAAAAAAAAHAPv/AwAAAAAAAAAHAPr/AwAAAAAAAAAGAPn/AwAAAAAAAAA=")
 script = null
 
 [node name="CorridorBlock2" parent="Map/P1Lobby" unique_id=717100803 instance=ExtResource("14_2jq6c")]

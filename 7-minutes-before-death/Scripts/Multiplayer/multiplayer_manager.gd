@@ -40,10 +40,10 @@ func _add_player_to_game(id: int):
 	targetPlayer.name = str(id)
 	if id == 1:
 		targetPlayer.global_position = spawn_point[1]
-		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/Gurney/GurneyP1").frame = 1
+		get_tree().get_current_scene().get_node("Sprites/Gurney/GurneyP1").frame = 1
 	else:
 		targetPlayer.global_position = spawn_point[0]
-		get_tree().get_current_scene().get_node("MainMenuCamera/Sprites/GuardianP2/guaP2").show()
+		get_tree().get_current_scene().get_node("Sprites/GuardianP2/guaP2").show()
 		print("All Players have joined.")
 		$/root/Game.allplayersconnected = true
 	

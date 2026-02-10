@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 			$/root/Game/Map/P1Lobby.show()
 			blocks = 1000 # Stop spawning new blocks.
 			print("Players are Connected and lobby is ready to move.")
-			$/root/Game/MainMenuCamera.targetP = get_multiplayer_authority()
+			$/root/Game/MainMenuCamera.focusCamera()
 			$/root/Game.cutscene1()
 			return
 		
@@ -46,6 +46,6 @@ func _process(delta: float) -> void:
 		void_block_start = void_blocks.instantiate()
 		void_block_start.name = "Corridor" + str(voidblocks)
 		void_block_start.global_position = Vector2(64,-32)*20
-		self.add_child(void_block_start)
+		$"/root/Game/MainMenuCamera".add_child(void_block_start)
 		voidblocks+=1
 	pass

@@ -171,6 +171,7 @@ _spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node2D" parent="." unique_id=1450767889]
+z_index = 100
 
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Host Game" to="." method="becomeHost"]
 [connection signal="pressed" from="MainMenuCamera/MainMenuHUD/Panel/MarginContainer/VBoxContainer/Join Game" to="." method="joinHostGame"]

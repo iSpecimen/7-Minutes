@@ -14,6 +14,9 @@
 [ext_resource type="Script" uid="uid://l07lwxlp55st" path="res://Scripts/AtiInteractionStuff/interactable.gd" id="11_vv4ip"]
 [ext_resource type="Texture2D" uid="uid://q2gi2vcbvvi3" path="res://Assets/kenney_sketch-desert/Tiles/tree_N.png" id="12_awugs"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_awugs"]
+font_size = 32
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xim88"]
 animations = [{
 "frames": [{
@@ -76,13 +79,42 @@ height = 64.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jq6c"]
 size = Vector2(78, 91)
 
-[node name="MainMenu" type="Node2D" unique_id=1085711166]
+[node name="Game" type="Node2D" unique_id=1085711166]
 script = ExtResource("1_tt5f1")
 
 [node name="MainMenuCamera" type="Camera2D" parent="." unique_id=830913481]
 
-[node name="Corridor" type="Node2D" parent="MainMenuCamera" unique_id=479213647]
+[node name="PopUpUI" type="Control" parent="MainMenuCamera" unique_id=1295420185]
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -572.0
+offset_top = -321.0
+offset_right = -328.0
+offset_bottom = -293.0
+scale = Vector2(1.8992958, 9.904945)
+
+[node name="Panel" type="Panel" parent="MainMenuCamera/PopUpUI" unique_id=407877368]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0530219
+offset_top = 0.605758
+offset_right = 1.0530243
+offset_bottom = 0.60575867
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainMenuCamera/PopUpUI/Panel" unique_id=192661766]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "WOAAHHH POP UP WOOAAHH
+"
+label_settings = SubResource("LabelSettings_awugs")
+
+[node name="Corridor" type="Node2D" parent="MainMenuCamera" unique_id=479213647]
 y_sort_enabled = true
 script = ExtResource("2_853f1")
 
@@ -178,6 +210,7 @@ text = "Join Game
 "
 
 [node name="Interactables" type="Node2D" parent="MainMenuCamera" unique_id=1049329363]
+visible = false
 z_index = 101
 y_sort_enabled = true
 position = Vector2(311, -188)
@@ -185,6 +218,18 @@ position = Vector2(311, -188)
 [node name="InteractObject" type="StaticBody2D" parent="MainMenuCamera/Interactables" unique_id=2037417954]
 script = ExtResource("11_vv4ip")
 ui_scene = ExtResource("11_awugs")
+
+[node name="InteractLabel" parent="MainMenuCamera/Interactables/InteractObject" unique_id=21531859 instance=ExtResource("11_awugs")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = 19.0
+offset_right = -82.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenuCamera/Interactables/InteractObject" unique_id=2052596960]
 position = Vector2(-8, 41)
@@ -203,18 +248,6 @@ collision_layer = 4
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_2jq6c")
 debug_color = Color(0.9764706, 0.15686275, 0, 0.20784314)
-
-[node name="InteractUITest" parent="MainMenuCamera/Interactables/InteractObject" unique_id=21531859 instance=ExtResource("11_awugs")]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -221.0
-offset_top = -35.0
-offset_right = -221.0
-offset_bottom = -35.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1530712542]
 _spawnable_scenes = PackedStringArray("uid://d3of633nmkams")
